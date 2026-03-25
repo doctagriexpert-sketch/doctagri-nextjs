@@ -1,0 +1,816 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="DoctAgri - Diagnostic intelligent des maladies des plantes par IA. Application mobile hors ligne pour les agriculteurs togolais.">
+    <title>DoctAgri - Protégez Vos Cultures avec l'Intelligence Artificielle</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Crimson+Pro:wght@400;600&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: {
+                            DEFAULT: '#2D5016',
+                            light: '#00C853',
+                            dark: '#1B3A1F',
+                            50: '#F5F1E8',
+                            100: '#E8DCC4',
+                            500: '#00C853',
+                            600: '#2D5016',
+                            700: '#1B3A1F',
+                        },
+                    },
+                },
+            },
+        }
+    </script>
+    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+    <script>
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement({pageLanguage: 'fr'}, 'google_translate_element');
+        }
+    </script>
+    <link rel="stylesheet" href="./css/main.css">
+    <link rel="stylesheet" href="./css/logo.css">
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar-transparent" id="navbar">
+        <div class="container mx-auto px-4 py-2 flex items-center justify-between">
+            <div class="flex items-center gap-2">
+                <a href="index.html" class="flex items-center gap-2">
+                    <img src="./assets/doct.jpeg" alt="DoctAgri Logo" class="h-8 w-auto">
+                    <span class="text-xl font-bold text-white">DoctAgri</span>
+                </a>
+            </div>
+            <div class="hidden md:flex items-center space-x-6">
+                <a href="index.html" class="text-white hover:text-primary-300 font-medium">Accueil</a>
+                <a href="pages/about.html" class="text-white hover:text-primary-300 font-medium">À propos</a>
+                <a href="pages/features.html" class="text-white hover:text-primary-300 font-medium">Fonctionnalités</a>
+                <a href="pages/download.html" class="text-white hover:text-primary-300 font-medium">Télécharger</a>
+                <a href="pages/faq.html" class="text-white hover:text-primary-300 font-medium">FAQ</a>
+                <button id="translate-btn" class="text-white hover:text-primary-300 font-medium flex items-center gap-2"><i class="ri-global-line"></i> EN</button>
+                <a href="pages/contact.html" class="bg-primary-light text-white px-4 py-2 rounded-lg hover:bg-primary-500 transition">Contact</a>
+            </div>
+            <button class="md:hidden text-white" id="mobile-menu-btn">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                </svg>
+            </button>
+        </div>
+        <!-- Mobile Menu -->
+        <div class="hidden md:hidden bg-primary-900/95 border-t border-primary-700" id="mobile-menu">
+            <div class="container mx-auto px-4 py-2 space-y-2">
+                <a href="index.html" class="block text-white hover:text-primary-300 font-medium">Accueil</a>
+                <a href="pages/about.html" class="block text-white hover:text-primary-300 font-medium">À propos</a>
+                <a href="pages/features.html" class="block text-white hover:text-primary-300 font-medium">Fonctionnalités</a>
+                <a href="pages/download.html" class="block text-white hover:text-primary-300 font-medium">Télécharger</a>
+                <a href="pages/faq.html" class="block text-white hover:text-primary-300 font-medium">FAQ</a>
+                <button id="translate-btn-mobile" class="block text-white hover:text-primary-300 font-medium flex items-center gap-2"><i class="ri-global-line"></i> EN</button>
+                <a href="pages/contact.html" class="block bg-primary-500 text-white px-4 py-2 rounded-lg text-center">Contact</a>
+            </div>
+        </div>
+    </nav>
+    <div id="google_translate_element" style="position: absolute; top: 0; left: 0; opacity: 0; pointer-events: none;"></div>
+
+    <!-- Hero Section avec Features intégrées -->
+    <section class="hero-section relative overflow-hidden" id="hero-section">
+        <div class="container mx-auto px-4 py-8 md:py-12 relative z-10">
+            <div class="text-center text-white mb-12">
+                <h1 class="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 text-shadow text-black">
+                    Protégez Vos Cultures avec<br>
+                    <span class="text-primary-light">l'Intelligence Artificielle</span>
+                </h1>
+                <p class="text-lg md:text-xl lg:text-2xl mb-10 max-w-3xl mx-auto text-shadow">
+                    DoctAgri diagnostique instantanément les maladies de vos plantes et vous guide avec des conseils personnalisés en français et en éwé, même sans connexion internet
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center mb-12">
+                    <a href="pages/download.html" class="bg-primary-light text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-primary-500 transition flex items-center justify-center gap-2 shadow-lg">
+                        <i class="ri-download-cloud-line text-xl"></i>
+                        Télécharger Gratuitement
+                    </a>
+                    <a href="pages/features.html" class="bg-white text-primary-dark border-2 border-gray-300 px-8 py-4 rounded-lg text-lg font-semibold hover:bg-gray-50 transition flex items-center justify-center gap-2 shadow-lg">
+                        <i class="ri-play-circle-line text-xl"></i>
+                        Découvrir les Fonctionnalités
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Features Cards intégrées dans le hero -->
+            <div class="container mx-auto px-4 pb-12">
+                <div class="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+                    <div class="feature-card p-8 rounded-xl text-center">
+                        <div class="icon-container">
+                            <i class="ri-wifi-off-line text-4xl text-white"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-2">100% Hors Ligne</h3>
+                        <p class="text-white/90">Fonctionne sans connexion internet</p>
+                    </div>
+                    <div class="feature-card p-8 rounded-xl text-center">
+                        <div class="icon-container">
+                            <i class="ri-brain-line text-4xl text-white"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-2">IA Embarquée</h3>
+                        <p class="text-white/90">Diagnostic instantané par photo</p>
+                    </div>
+                    <div class="feature-card p-8 rounded-xl text-center">
+                        <div class="icon-container">
+                            <i class="ri-volume-up-line text-4xl text-white"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-2">Audio Multilingue</h3>
+                        <p class="text-white/90">Conseils en français,en éwé et en kabye</p>
+                </div>
+            </div>
+        </div>
+            
+        <!-- Scroll Indicator -->
+            <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce z-10">
+            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+            </svg>
+            </div>
+        </div>
+    </section>
+
+    <!-- Diagnostic Intelligent Section -->
+    <section class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div>
+                    <span class="inline-block bg-beige-light text-primary-dark px-4 py-2 rounded-full text-xs font-semibold uppercase tracking-wide mb-4">DIAGNOSTIC INTELLIGENT</span>
+                    <h2 class="text-4xl md:text-5xl font-bold text-primary-dark mb-6">Un Diagnostic Précis en Quelques Secondes</h2>
+                    <p class="text-lg text-primary-600 mb-8">
+                        Grâce à l'intelligence artificielle embarquée, <span class="text-primary-light font-semibold">DoctAgri</span> analyse instantanément les photos de vos plantes et détecte les maladies, carences et parasites avec une précision supérieure à 95%.
+                    </p>
+                    <div class="space-y-6">
+                        <div class="flex items-start gap-4">
+                            <div class="flex-shrink-0 w-14 h-14 bg-beige-light rounded-xl flex items-center justify-center">
+                                <i class="ri-camera-line text-2xl text-primary-dark"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-primary-dark mb-1">Prenez une photo</h3>
+                                <p class="text-primary-600">Photographiez simplement la partie malade de votre plante</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-4">
+                            <div class="flex-shrink-0 w-14 h-14 bg-beige-light rounded-xl flex items-center justify-center">
+                                <i class="ri-flashlight-line text-2xl text-primary-dark"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-primary-dark mb-1">Analyse instantanée</h3>
+                                <p class="text-primary-600">L'IA identifie le problème en moins de 3 secondes</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-4">
+                            <div class="flex-shrink-0 w-14 h-14 bg-beige-light rounded-xl flex items-center justify-center">
+                                <i class="ri-shield-check-line text-2xl text-primary-dark"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-primary-dark mb-1">Recevez des conseils</h3>
+                                <p class="text-primary-600">Obtenez des recommandations de traitement personnalisées</p>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="pages/features.html" class="inline-block mt-8 text-primary-light font-semibold hover:text-primary-500 transition flex items-center gap-2">
+                        En savoir plus sur le diagnostic
+                        <i class="ri-arrow-right-line"></i>
+                    </a>
+                </div>
+                <div class="relative flex justify-center md:justify-end">
+                    <div class="relative z-10 max-w-[320px] w-full">
+                        <!-- Smartphone avec feuille de plante analysée -->
+                        <div class="relative transform rotate-[-5deg]">
+                            <!-- Smartphone frame blanc -->
+                        <div class="bg-white rounded-[2.5rem] p-2 shadow-2xl">
+                                <div class="bg-primary-dark rounded-[2rem] p-1">
+                                    <!-- Screen avec feuille -->
+                                    <div class="bg-gradient-to-br from-green-50 via-green-100 to-green-50 rounded-[1.75rem] overflow-hidden relative flex flex-col" style="aspect-ratio: 9/19.5; min-height: 440px;">
+                                        <!-- Feuille de plante avec taches brunes - Positionnée en haut -->
+                                        <div class="flex-shrink-0 flex items-start justify-center pt-4 px-4 relative" style="height: 35%;">
+                                            <div class="relative w-full max-w-[85%]">
+                                                <!-- Image de feuille verte avec taches brunes -->
+                                                <img id="diagnostic-leaf-image" src="./assets/malade1.jpg" alt="Feuille analysée" class="w-full h-auto object-contain rounded-lg shadow-md">
+                                                <!-- Overlay scan circulaire vert brillant -->
+                                                <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 pointer-events-none">
+                                                    <div class="w-20 h-20 rounded-full border-2 border-primary-light shadow-lg" style="box-shadow: 0 0 15px rgba(0, 200, 83, 0.5);">
+                                                        <div class="w-full h-full rounded-full bg-primary-light/30 flex items-center justify-center backdrop-blur-sm">
+                                                            <div class="w-12 h-12 rounded-full bg-primary-light/50 flex items-center justify-center">
+                                                                <div class="w-6 h-6 rounded-full bg-primary-light"></div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        <!-- Section recommandations / problèmes détectés au milieu -->
+                                        <div class="flex-1 px-4 py-3 overflow-y-auto" style="max-height: 45%;">
+                                            <div class="bg-white/95 backdrop-blur-sm rounded-xl p-3 shadow-lg">
+                                                <h4 class="text-xs font-bold text-primary-dark mb-2 flex items-center gap-1">
+                                                    <i class="ri-alert-line text-primary-light"></i>
+                                                    Problèmes détectés
+                                                </h4>
+                                                <div class="space-y-2">
+                                                    <div class="flex items-start gap-2 bg-red-50 rounded-lg p-2">
+                                                        <i class="ri-error-warning-line text-red-500 text-sm mt-0.5"></i>
+                                                        <div class="flex-1">
+                                                            <p class="text-xs font-semibold text-primary-dark">Maladie fongique détectée</p>
+                                                            <p class="text-xs text-primary-600">Taches brunes sur les feuilles</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="flex items-start gap-2 bg-yellow-50 rounded-lg p-2">
+                                                        <i class="ri-alert-line text-yellow-600 text-sm mt-0.5"></i>
+                                                        <div class="flex-1">
+                                                            <p class="text-xs font-semibold text-primary-dark">Carence nutritionnelle</p>
+                                                            <p class="text-xs text-primary-600">Manque d'azote probable</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                
+                                                <div class="mt-3 pt-2 border-t border-primary-100">
+                                                    <h4 class="text-xs font-bold text-primary-dark mb-2 flex items-center gap-1">
+                                                        <i class="ri-lightbulb-line text-primary-light"></i>
+                                                        Recommandations
+                                                    </h4>
+                                                    <ul class="space-y-1.5">
+                                                        <li class="flex items-start gap-2">
+                                                            <i class="ri-checkbox-circle-line text-primary-light text-xs mt-0.5"></i>
+                                                            <span class="text-xs text-primary-600">Appliquer un fongicide biologique</span>
+                                                        </li>
+                                                        <li class="flex items-start gap-2">
+                                                            <i class="ri-checkbox-circle-line text-primary-light text-xs mt-0.5"></i>
+                                                            <span class="text-xs text-primary-600">Fertiliser avec un engrais azoté</span>
+                                                        </li>
+                                                        <li class="flex items-start gap-2">
+                                                            <i class="ri-checkbox-circle-line text-primary-light text-xs mt-0.5"></i>
+                                                            <span class="text-xs text-primary-600">Éviter l'arrosage excessif</span>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        <!-- Texte "Analyse en cours" en bas -->
+                                        <div class="flex-shrink-0 pb-6 px-6 text-center">
+                                            <div class="inline-flex items-center gap-2 bg-white/90 backdrop-blur-sm px-5 py-2 rounded-full shadow-lg">
+                                                <div class="w-2 h-2 bg-primary-light rounded-full animate-pulse"></div>
+                                                <span class="text-primary-dark font-semibold text-xs">Analyse en cours...</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Gradient background vert clair -->
+                            <div class="absolute inset-0 bg-gradient-to-br from-primary-light/20 via-primary-200/15 to-primary-light/25 rounded-[2.5rem] blur-3xl -z-10 transform scale-125"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Fonctionnalités Section -->
+    <section class="py-20 bg-beige-light/50 backdrop-blur-sm relative">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <span class="inline-block bg-primary-100 text-primary-dark px-4 py-2 rounded-full text-sm font-semibold mb-4">FONCTIONNALITÉS</span>
+                <h2 class="text-4xl md:text-5xl font-bold text-primary-dark mb-4">Une Solution Complète pour Vos Cultures</h2>
+                <p class="text-xl text-primary-600">DoctAgri combine technologie de pointe et accessibilité pour offrir une assistance agricole de qualité à tous les agriculteurs togolais</p>
+            </div>
+            <div class="grid md:grid-cols-3 gap-8 mb-12" id="website-builder">
+                <!-- Card 1: Fonctionnement Hors Ligne -->
+                <div class="bg-white p-8 rounded-2xl shadow-lg border border-gray-100 hover:shadow-xl transition-shadow">
+                    <div class="w-16 h-16 bg-primary-50 rounded-xl border-2 border-primary-light flex items-center justify-center mx-auto mb-4">
+                        <i class="ri-wifi-off-line text-3xl text-primary-light"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-3 text-center">Fonctionnement Hors Ligne</h3>
+                    <p class="text-gray-900 text-center">Utilisez DoctAgri partout, même sans connexion internet. Toute l'intelligence artificielle est embarquée dans l'application.</p>
+                </div>
+                
+                <!-- Card 2: Intelligence Artificielle -->
+                <div class="bg-white p-8 rounded-2xl shadow-lg border border-gray-100 hover:shadow-xl transition-shadow">
+                    <div class="w-16 h-16 bg-primary-50 rounded-xl border-2 border-primary-light flex items-center justify-center mx-auto mb-4">
+                        <i class="ri-brain-line text-3xl text-primary-light"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-3 text-center">Intelligence Artificielle</h3>
+                    <p class="text-gray-900 text-center">Technologie pronfonde pour une détection précise des maladies, carences et parasites sur vos cultures.</p>
+                </div>
+                
+                <!-- Card 3: Audio Multilingue -->
+                <div class="bg-white p-8 rounded-2xl shadow-lg border border-gray-100 hover:shadow-xl transition-shadow">
+                    <div class="w-16 h-16 bg-primary-50 rounded-xl border-2 border-primary-light flex items-center justify-center mx-auto mb-4">
+                        <i class="ri-volume-up-line text-3xl text-primary-light"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-3 text-center">Audio Multilingue</h3>
+                    <p class="text-gray-900 text-center">Conseils disponibles en audio en français ,en kabye et en éwé, accessibles même pour les agriculteurs non-alphabétisés.</p>
+                </div>
+                
+                <!-- Card 4: Cultures Prioritaires -->
+                <div class="bg-white p-8 rounded-2xl shadow-lg border border-gray-100 hover:shadow-xl transition-shadow">
+                    <div class="w-16 h-16 bg-primary-50 rounded-xl border-2 border-primary-light flex items-center justify-center mx-auto mb-4">
+                        <i class="ri-plant-line text-3xl text-primary-light"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-3 text-center">Cultures Prioritaires</h3>
+                    <p class="text-gray-900 text-center">Spécialisé dans la tomate, le maïs, le piment et le manioc, avec de nouvelles cultures ajoutées régulièrement.</p>
+                </div>
+                
+                <!-- Card 5: Traitements Adaptés -->
+                <div class="bg-white p-8 rounded-2xl shadow-lg border border-gray-100 hover:shadow-xl transition-shadow">
+                    <div class="w-16 h-16 bg-primary-50 rounded-xl border-2 border-primary-light flex items-center justify-center mx-auto mb-4">
+                        <i class="ri-medicine-bottle-line text-3xl text-primary-light"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-3 text-center">Traitements Adaptés</h3>
+                    <p class="text-gray-900 text-center">Recommandations de traitements biologiques et chimiques adaptés à chaque pathologie détectée.</p>
+                </div>
+                
+                <!-- Card 6: Approche Écologique -->
+                <div class="bg-white p-8 rounded-2xl shadow-lg border border-gray-100 hover:shadow-xl transition-shadow">
+                    <div class="w-16 h-16 bg-primary-50 rounded-xl border-2 border-primary-light flex items-center justify-center mx-auto mb-4">
+                        <i class="ri-leaf-line text-3xl text-primary-light"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-3 text-center">Approche Écologique</h3>
+                    <p class="text-gray-900 text-center">Réduction de 20-30% de l'utilisation des pesticides grâce à des diagnostics précis et des solutions naturelles.</p>
+                </div>
+            </div>
+            
+            <!-- CTA Button -->
+            <div class="text-center">
+                <a href="pages/features.html" class="inline-flex items-center gap-2 bg-primary-light text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-primary-500 transition shadow-lg">
+                    Découvrir toutes les fonctionnalités
+                    <i class="ri-arrow-right-line"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Impact Section -->
+    <section class="py-20 bg-primary-dark relative">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <span class="inline-block bg-primary-light text-white px-4 py-2 rounded-lg text-sm font-semibold mb-4">NOTRE IMPACT</span>
+                <h2 class="text-4xl md:text-5xl font-bold text-white mb-4">Un Impact Social et Environnemental Positif</h2>
+                <p class="text-xl text-white">DoctAgri contribue au développement durable de l'agriculture togolaise</p>
+            </div>
+            
+            <!-- Impact Cards -->
+            <div class="grid md:grid-cols-2 gap-8 mb-16">
+                <!-- Impact Environnemental -->
+                <div class="impact-card bg-primary-dark/60 backdrop-blur-md p-8 rounded-2xl border border-white/20 shadow-xl">
+                    <div class="w-14 h-14 bg-primary-light rounded-xl flex items-center justify-center mb-4">
+                        <i class="ri-leaf-line text-2xl text-white"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-white mb-6">Impact Environnemental</h3>
+                    <ul class="space-y-4">
+                        <li class="flex items-start gap-3 text-white">
+                            <i class="ri-checkbox-circle-fill text-primary-light flex-shrink-0 mt-0.5 text-xl"></i>
+                            <span>Réduction de 20-30% de l'utilisation des pesticides et engrais</span>
+                        </li>
+                        <li class="flex items-start gap-3 text-white">
+                            <i class="ri-checkbox-circle-fill text-primary-light flex-shrink-0 mt-0.5 text-xl"></i>
+                            <span>Diminution de la pollution des sols et des eaux</span>
+                        </li>
+                        <li class="flex items-start gap-3 text-white">
+                            <i class="ri-checkbox-circle-fill text-primary-light flex-shrink-0 mt-0.5 text-xl"></i>
+                            <span>Préservation de la biodiversité agricole</span>
+                        </li>
+                        <li class="flex items-start gap-3 text-white">
+                            <i class="ri-checkbox-circle-fill text-primary-light flex-shrink-0 mt-0.5 text-xl"></i>
+                            <span>Fonctionnement hors ligne sans consommation énergétique cloud</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- Impact Social -->
+                <div class="impact-card bg-primary-dark/60 backdrop-blur-md p-8 rounded-2xl border border-white/20 shadow-xl">
+                    <div class="w-14 h-14 bg-primary-light rounded-xl flex items-center justify-center mb-4">
+                        <i class="ri-group-line text-2xl text-white"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-white mb-6">Impact Social</h3>
+                    <ul class="space-y-4">
+                        <li class="flex items-start gap-3 text-white">
+                            <i class="ri-checkbox-circle-fill text-primary-light flex-shrink-0 mt-0.5 text-xl"></i>
+                            <span>Objectif de 50% de bénéficiaires femmes</span>
+                        </li>
+                        <li class="flex items-start gap-3 text-white">
+                            <i class="ri-checkbox-circle-fill text-primary-light flex-shrink-0 mt-0.5 text-xl"></i>
+                            <span>Renforcement de l'autonomie décisionnelle des agriculteurs</span>
+                        </li>
+                        <li class="flex items-start gap-3 text-white">
+                            <i class="ri-checkbox-circle-fill text-primary-light flex-shrink-0 mt-0.5 text-xl"></i>
+                            <span>Réduction des coûts de production</span>
+                        </li>
+                        <li class="flex items-start gap-3 text-white">
+                            <i class="ri-checkbox-circle-fill text-primary-light flex-shrink-0 mt-0.5 text-xl"></i>
+                            <span>Inclusion numérique et empowerment féminin</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Statistics Section -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mb-12">
+                <div class="text-center">
+                    <div class="text-5xl md:text-6xl font-bold text-primary-light mb-2">1000+</div>
+                    <div class="text-white text-lg">Agriculteurs pilotes</div>
+                </div>
+                <div class="text-center">
+                    <div class="text-5xl md:text-6xl font-bold text-primary-light mb-2">95%</div>
+                    <div class="text-white text-lg">Précision de diagnostic</div>
+                </div>
+                <div class="text-center">
+                    <div class="text-5xl md:text-6xl font-bold text-primary-light mb-2">30%</div>
+                    <div class="text-white text-lg">Économie d'intrants</div>
+                </div>
+                <div class="text-center">
+                    <div class="text-5xl md:text-6xl font-bold text-primary-light mb-2">100%</div>
+                    <div class="text-white text-lg">Hors ligne</div>
+                </div>
+            </div>
+            
+            <!-- CTA Link -->
+            <div class="text-center">
+                <a href="pages/about.html" class="inline-flex items-center gap-2 text-primary-light font-semibold hover:text-primary-300 transition text-lg">
+                    En savoir plus sur notre mission
+                    <i class="ri-arrow-right-line"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <span class="inline-block bg-primary-light text-white px-4 py-2 rounded-full text-sm font-semibold mb-4">TÉMOIGNAGES</span>
+                <h2 class="text-4xl md:text-5xl font-bold text-primary-dark mb-4">Ce Que Disent Nos Agriculteurs</h2>
+                <p class="text-xl text-gray-600">Des milliers d'agriculteurs togolais font déjà confiance à DoctAgri pour protéger leurs cultures</p>
+            </div>
+            <div class="relative max-w-5xl mx-auto">
+                <div class="overflow-hidden" id="testimonials-slider">
+                    <div class="flex transition-transform duration-500 ease-out" id="testimonials-container">
+                        <!-- Les témoignages seront générés dynamiquement par JavaScript -->
+                    </div>
+                </div>
+                <button id="testimonial-prev" class="hidden md:flex absolute left-0 top-1/2 -translate-y-1/2 bg-white border border-gray-200 shadow-md w-10 h-10 rounded-full items-center justify-center text-gray-700 hover:bg-gray-50">
+                    <i class="ri-arrow-left-s-line text-xl"></i>
+                </button>
+                <button id="testimonial-next" class="hidden md:flex absolute right-0 top-1/2 -translate-y-1/2 bg-white border border-gray-200 shadow-md w-10 h-10 rounded-full items-center justify-center text-gray-700 hover:bg-gray-50">
+                    <i class="ri-arrow-right-s-line text-xl"></i>
+                </button>
+                <div class="flex justify-center mt-8 gap-2" id="testimonial-dots">
+                    <!-- Points de navigation générés par JavaScript -->
+                </div>
+            </div>
+            <div class="text-center mt-12">
+                <p class="text-gray-600 mb-6">Rejoignez les milliers d'agriculteurs qui utilisent déjà DoctAgri</p>
+                <a href="pages/download.html" class="inline-flex items-center gap-2 bg-primary-light text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-primary-500 transition shadow-lg">
+                    <i class="ri-download-cloud-line text-xl"></i>
+                    Télécharger gratuitement
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Download Section -->
+    <section class="py-20 bg-primary-light relative">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-4xl md:text-5xl font-bold text-white mb-4">Prêt à Révolutionner Votre Agriculture ?</h2>
+            <p class="text-xl text-white mb-10">Rejoignez les milliers d'agriculteurs togolais qui utilisent déjà DoctAgri pour protéger leurs cultures et augmenter leurs rendements</p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center mb-8">
+                <a href="#" class="bg-white text-gray-900 px-8 py-4 rounded-full text-lg font-semibold hover:bg-gray-100 transition flex items-center justify-center gap-2 shadow-lg">
+                    <i class="ri-play-fill text-2xl"></i>
+                    Télécharger sur Google Play
+                </a>
+                <a href="#" class="bg-primary-dark text-white px-8 py-4 rounded-full text-lg font-semibold hover:bg-primary-700 transition flex items-center justify-center gap-2 shadow-lg">
+                    <i class="ri-download-cloud-line text-xl"></i>
+                    Télécharger l'APK
+                </a>
+            </div>
+            <div class="flex flex-wrap justify-center gap-6 text-white">
+                <div class="flex items-center gap-2">
+                    <i class="ri-checkbox-circle-fill text-white"></i>
+                    <span>100% Gratuit</span>
+                </div>
+                <div class="flex items-center gap-2">
+                    <i class="ri-checkbox-circle-fill text-white"></i>
+                    <span>Sans Publicité</span>
+                </div>
+                <div class="flex items-center gap-2">
+                    <i class="ri-checkbox-circle-fill text-white"></i>
+                    <span>Hors Ligne</span>
+                </div>
+                <div class="flex items-center gap-2">
+                    <i class="ri-checkbox-circle-fill text-white"></i>
+                    <span>Multilingue</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-primary-dark text-white py-16 relative overflow-hidden">
+        <!-- Watermark DOCTAGRI -->
+        <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+            <span class="text-[200px] md:text-[300px] font-black text-white/5 select-none">DOCTAGRI</span>
+        </div>
+        
+        <div class="container mx-auto px-6 lg:px-12 relative z-10">
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
+                <!-- Colonne 1: Brand -->
+                <div>
+                    <div class="flex items-center gap-3 mb-6">
+                        <img src="./assets/doct.jpeg" alt="DoctAgri Logo" class="h-10 w-auto">
+                        <span class="text-2xl font-bold text-white">DoctAgri</span>
+                    </div>
+                    <p class="text-white leading-relaxed mb-4">Plateforme numérique inclusive pour l'assistance agricole intelligente au Togo</p>
+                </div>
+                
+                <!-- Colonne 2: RESTEZ INFORMÉ -->
+                <div>
+                    <h3 class="text-lg font-bold mb-6 uppercase tracking-wide">RESTEZ INFORMÉ</h3>
+                    <form id="newsletter-form-index" class="mb-4">
+                        <div class="flex items-center border-b border-white/30 pb-2">
+                            <input type="email" name="email" required placeholder="Votre email" class="flex-1 bg-transparent text-white placeholder-white/60 focus:outline-none">
+                            <button type="submit" class="text-white hover:text-primary-light transition-colors">
+                                <i class="ri-arrow-right-line text-xl"></i>
+                            </button>
+                        </div>
+                    </form>
+                    <p id="newsletter-message-index" class="text-sm text-primary-light mt-2 hidden"></p>
+                    <a href="pages/privacy.html" class="text-white/80 hover:text-primary-light transition-colors text-sm underline">En savoir plus sur notre politique de confidentialité</a>
+                </div>
+                
+                <!-- Colonne 3: RESSOURCES -->
+                <div>
+                    <h3 class="text-lg font-bold mb-6 uppercase tracking-wide">RESSOURCES</h3>
+                    <ul class="space-y-3">
+                        <li><a href="pages/documentation.html" class="text-white hover:text-primary-light transition-colors">Documentation</a></li>
+                        <li><a href="pages/faq.html" class="text-white hover:text-primary-light transition-colors">FAQ</a></li>
+                        <li><a href="pages/contact.html" class="text-white hover:text-primary-light transition-colors">Support technique</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Colonne 4: NAVIGATION -->
+                <div>
+                    <h3 class="text-lg font-bold mb-6 uppercase tracking-wide">NAVIGATION</h3>
+                    <ul class="space-y-3">
+                        <li><a href="pages/about.html" class="text-white hover:text-primary-light transition-colors">À propos</a></li>
+                        <li><a href="pages/features.html" class="text-white hover:text-primary-light transition-colors">Fonctionnalités</a></li>
+                        <li><a href="pages/download.html" class="text-white hover:text-primary-light transition-colors">Télécharger</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Bottom Bar -->
+            <div class="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+                <p class="text-white text-sm">© 2026 DoctAgri. Tous droits réservés.</p>
+                <div class="flex items-center gap-4">
+                    <a href="https://facebook.com/DoctAgri" class="text-white hover:text-primary-light transition-colors" target="_blank" rel="noopener">
+                        <i class="ri-facebook-fill text-xl"></i>
+                    </a>
+                    <a href="https://twitter.com/DoctAgri" class="text-white hover:text-primary-light transition-colors" target="_blank" rel="noopener">
+                        <i class="ri-twitter-x-line text-xl"></i>
+                    </a>
+                    <a href="https://linkedin.com/company/DoctAgri" class="text-white hover:text-primary-light transition-colors" target="_blank" rel="noopener">
+                        <i class="ri-linkedin-fill text-xl"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating Talk with Us Button -->
+    <a href="pages/contact.html" class="fixed bottom-6 right-6 bg-primary-light text-white px-4 py-3 rounded-full shadow-lg hover:bg-primary-500 transition flex items-center gap-2 z-50">
+        <i class="ri-customer-service-2-line text-xl"></i>
+        <span class="font-medium">Talk with Us</span>
+    </a>
+
+    <script src="./js/main.js"></script>
+    <script>
+        // Changer l'image de background avec différentes images OIP
+        const heroSection = document.getElementById('hero-section');
+        const oipImages = [
+            './assets/OIP1.jpg',
+            './assets/OIP2.jpg',
+            './assets/OIP3.jpg',
+            './assets/OIP4.jpg',
+            './assets/OIP5.jpg',
+            './assets/OIP6.jpg',
+            './assets/OIP7.jpg',
+            './assets/OIP9.jpg',
+            './assets/OIP.webp'
+        ];
+        
+        if (heroSection) {
+            // Sélectionner une image aléatoire au chargement
+            const randomImage = oipImages[Math.floor(Math.random() * oipImages.length)];
+            heroSection.style.backgroundImage = `url('${randomImage}')`;
+        }
+        
+        // Changer l'image de la feuille malade avec différentes images
+        const diagnosticLeafImage = document.getElementById('diagnostic-leaf-image');
+        const maladeImages = [
+            './assets/malade1.jpg',
+            './assets/malade2.jpg',
+            './assets/malade3.jpg',
+            './assets/malade4.jpg'
+        ];
+        
+        if (diagnosticLeafImage) {
+            // Sélectionner une image aléatoire au chargement
+            const randomMaladeImage = maladeImages[Math.floor(Math.random() * maladeImages.length)];
+            diagnosticLeafImage.src = randomMaladeImage;
+        }
+        
+        // Témoignages en carrousel (diaporama horizontal, 1 à 3 cartes par slide) — chargés depuis le backend
+        const testimonialsContainer = document.getElementById('testimonials-container');
+        const testimonialsDots = document.getElementById('testimonial-dots');
+        const testimonialPrev = document.getElementById('testimonial-prev');
+        const testimonialNext = document.getElementById('testimonial-next');
+        let currentTestimonialIndex = 0;
+        const itemsPerSlide = 3; // jusqu'à 3 témoignages par slide
+        
+        function updateTestimonialSlider(totalSlides) {
+            if (!testimonialsContainer) return;
+            
+            const offset = -currentTestimonialIndex * 100;
+            testimonialsContainer.style.transform = `translateX(${offset}%)`;
+            
+            if (testimonialsDots) {
+                const dots = testimonialsDots.querySelectorAll('button');
+                dots.forEach((dot, index) => {
+                    if (index === currentTestimonialIndex) {
+                        dot.classList.add('bg-primary-light');
+                        dot.classList.remove('bg-gray-300');
+                    } else {
+                        dot.classList.remove('bg-primary-light');
+                        dot.classList.add('bg-gray-300');
+                    }
+                });
+            }
+        }
+        
+        function renderTestimonials(allTestimonials) {
+            if (!testimonialsContainer || !Array.isArray(allTestimonials) || allTestimonials.length === 0) return;
+
+            // Nettoyer le contenu existant (au cas où)
+            testimonialsContainer.innerHTML = '';
+            if (testimonialsDots) testimonialsDots.innerHTML = '';
+
+            const totalSlides = Math.ceil(allTestimonials.length / itemsPerSlide);
+
+            for (let slideIndex = 0; slideIndex < totalSlides; slideIndex++) {
+                const slide = document.createElement('div');
+                slide.className = 'w-full flex-shrink-0 px-2 md:px-4';
+
+                const start = slideIndex * itemsPerSlide;
+                const end = start + itemsPerSlide;
+                const testimonialsForSlide = allTestimonials.slice(start, end);
+
+                const cardsHtml = testimonialsForSlide.map(testimonial => `
+                    <div class="bg-beige-light p-6 rounded-xl shadow-lg border border-gray-200">
+                        <div class="flex items-center gap-4 mb-4">
+                            <img src="${testimonial.image}" alt="${testimonial.name}" class="w-16 h-16 rounded-full object-cover border-2 border-gray-300">
+                            <div>
+                                <h4 class="font-bold text-gray-900 text-base">${testimonial.name}</h4>
+                                <p class="text-sm text-gray-600">${testimonial.role}</p>
+                            </div>
+                        </div>
+                        <div class="text-primary-light text-5xl mb-3 leading-none">
+                            <i class="ri-double-quotes-l"></i>
+                        </div>
+                        <p class="text-gray-700 mb-4 leading-relaxed text-sm italic">${testimonial.text}</p>
+                        <div class="flex gap-1 mt-4">
+                            <i class="ri-star-fill text-primary-light text-base"></i>
+                            <i class="ri-star-fill text-primary-light text-base"></i>
+                            <i class="ri-star-fill text-primary-light text-base"></i>
+                            <i class="ri-star-fill text-primary-light text-base"></i>
+                            <i class="ri-star-fill text-primary-light text-base"></i>
+                        </div>
+                    </div>
+                `).join('');
+
+                slide.innerHTML = `
+                    <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+                        ${cardsHtml}
+                    </div>
+                `;
+
+                testimonialsContainer.appendChild(slide);
+
+                if (testimonialsDots) {
+                    const dot = document.createElement('button');
+                    dot.className = 'w-3 h-3 rounded-full bg-gray-300 transition-colors duration-200';
+                    dot.setAttribute('aria-label', `Slide témoignages ${slideIndex + 1}`);
+                    dot.addEventListener('click', () => {
+                        currentTestimonialIndex = slideIndex;
+                        updateTestimonialSlider(totalSlides);
+                    });
+                    testimonialsDots.appendChild(dot);
+                }
+            }
+            
+            updateTestimonialSlider(totalSlides);
+            
+            if (testimonialPrev) {
+                testimonialPrev.classList.remove('hidden');
+                testimonialPrev.addEventListener('click', () => {
+                    currentTestimonialIndex = (currentTestimonialIndex - 1 + totalSlides) % totalSlides;
+                    updateTestimonialSlider(totalSlides);
+                });
+            }
+            
+            if (testimonialNext) {
+                testimonialNext.classList.remove('hidden');
+                testimonialNext.addEventListener('click', () => {
+                    currentTestimonialIndex = (currentTestimonialIndex + 1) % totalSlides;
+                    updateTestimonialSlider(totalSlides);
+                });
+            }
+            
+            // Défilement automatique toutes les 8 secondes
+            setInterval(() => {
+                currentTestimonialIndex = (currentTestimonialIndex + 1) % totalSlides;
+                updateTestimonialSlider(totalSlides);
+            }, 8000);
+        }
+
+        async function loadTestimonials() {
+            const fallbackTestimonials = [
+                {
+                    image: './assets/cul1.jpg',
+                    name: 'Koffi Mensah',
+                    role: 'Producteur de tomates, Kpalimé',
+                    text: "Depuis que j'utilise DoctAgri, j'ai réduit mes pertes de 60%. L'application détecte les maladies avant même que je les remarque. Les conseils audio en éwé sont très utiles."
+                },
+                {
+                    image: './assets/cul2.jpg',
+                    name: 'Afi Akossiwa',
+                    role: 'Agricultrice de maïs, Sokodé',
+                    text: "Je ne savais ni lire ni écrire, mais avec les explications audio, je peux maintenant diagnostiquer et traiter mes cultures moi-même. DoctAgri a changé ma vie."
+                },
+                {
+                    image: './assets/cul3.jpg',
+                    name: 'Yao Kokou',
+                    role: 'Cultivateur de piment, Atakpamé',
+                    text: "Même dans mon village sans internet, DoctAgri fonctionne parfaitement. J'ai économisé beaucoup d'argent en utilisant moins de pesticides grâce aux diagnostics précis."
+                }
+            ];
+
+            try {
+                const response = await fetch('/api/testimonials');
+                const data = await response.json();
+                const items = data && Array.isArray(data.items) ? data.items : [];
+                renderTestimonials(items.length ? items : fallbackTestimonials);
+            } catch (e) {
+                // Si le backend n'est pas lancé, on ne casse pas la page
+                console.warn('Impossible de charger les témoignages depuis /api/testimonials');
+                renderTestimonials(fallbackTestimonials);
+            }
+        }
+
+        loadTestimonials();
+        
+        // Newsletter form handler
+        const newsletterFormIndex = document.getElementById('newsletter-form-index');
+        const newsletterMessageIndex = document.getElementById('newsletter-message-index');
+        
+        if (newsletterFormIndex) {
+            newsletterFormIndex.addEventListener('submit', async function(e) {
+                e.preventDefault();
+                const email = this.querySelector('input[name="email"]').value;
+
+                try {
+                    const response = await fetch('/api/newsletter', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ email }),
+                    });
+
+                    if (response.ok) {
+                        newsletterMessageIndex.textContent = 'Merci ! Vous êtes inscrit à notre newsletter.';
+                        newsletterMessageIndex.classList.remove('hidden');
+                        this.reset();
+                        setTimeout(() => newsletterMessageIndex.classList.add('hidden'), 5000);
+                    } else {
+                        const data = await response.json().catch(() => ({}));
+                        newsletterMessageIndex.textContent = data.error || 'Une erreur est survenue.';
+                        newsletterMessageIndex.classList.remove('hidden');
+                    }
+                } catch (error) {
+                    newsletterMessageIndex.textContent = 'Une erreur est survenue. Lancez le serveur pour activer les inscriptions.';
+                    newsletterMessageIndex.classList.remove('hidden');
+                }
+            });
+        }
+    </script>
+</body>
+</html>
+

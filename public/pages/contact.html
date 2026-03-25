@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Contactez DoctAgri - Notre équipe est à votre écoute pour répondre à toutes vos questions.">
+    <title>Contactez-Nous - DoctAgri</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Crimson+Pro:wght@400;600&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: {
+                            DEFAULT: '#2D5016',
+                            light: '#00C853',
+                            dark: '#1B3A1F',
+                            50: '#F5F1E8',
+                            100: '#E8DCC4',
+                            200: '#F5F1E8',
+                            300: '#86efac',
+                            400: '#4ade80',
+                            500: '#00C853',
+                            600: '#2D5016',
+                            700: '#1B3A1F',
+                            800: '#166534',
+                            900: '#14532d',
+                        },
+                        beige: {
+                            light: '#F5F1E8',
+                            DEFAULT: '#E8DCC4',
+                        },
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Crimson Pro', 'serif'],
+                    },
+                },
+            },
+        }
+    </script>
+    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+    <script>
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement({pageLanguage: 'fr'}, 'google_translate_element');
+        }
+    </script>
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/logo.css">
+    <style>
+        /* Fallback styles in case Tailwind doesn't load */
+        * {
+            box-sizing: border-box;
+        }
+        body { 
+            font-family: 'Inter', sans-serif; 
+            background-color: #f9fafb;
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            display: block;
+        }
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+        nav {
+            display: flex;
+            background: white;
+            padding: 0.5rem 1rem;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+        section {
+            display: block;
+            padding: 2rem 0;
+        }
+        h1, h2, h3 {
+            display: block;
+            margin: 0 0 1rem 0;
+        }
+        form {
+            display: block;
+        }
+        input, textarea, select, button {
+            display: block;
+            width: 100%;
+            padding: 0.75rem;
+            margin: 0.5rem 0;
+            border: 2px solid #e5e7eb;
+            border-radius: 0.5rem;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Navbar -->
+    <nav class="bg-white shadow-sm sticky top-0 z-40">
+        <div class="container mx-auto px-4 py-2 flex items-center justify-between">
+            <div class="flex items-center gap-2">
+                <a href="../index.html" class="flex items-center gap-2">
+                    <img src="../assets/doct.jpeg" alt="DoctAgri Logo" class="h-8 w-auto">
+                    <span class="text-xl font-bold text-primary-dark">DoctAgri</span>
+                </a>
+            </div>
+            <div class="hidden md:flex items-center space-x-6">
+                <a href="../index.html" class="text-gray-700 hover:text-primary-600 font-medium">Accueil</a>
+                <a href="about.html" class="text-gray-700 hover:text-primary-600 font-medium">À propos</a>
+                <a href="features.html" class="text-gray-700 hover:text-primary-600 font-medium">Fonctionnalités</a>
+                <a href="download.html" class="text-gray-700 hover:text-primary-600 font-medium">Télécharger</a>
+                <a href="faq.html" class="text-gray-700 hover:text-primary-600 font-medium">FAQ</a>
+                <button id="translate-btn" class="text-gray-700 hover:text-primary-600 font-medium flex items-center gap-2"><i class="ri-global-line"></i> EN</button>
+                <a href="contact.html" class="bg-primary-500 text-white px-4 py-2 rounded-lg hover:bg-primary-400 transition">Contact</a>
+            </div>
+            <button class="md:hidden text-gray-700" id="mobile-menu-btn">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                </svg>
+            </button>
+        </div>
+        <!-- Mobile Menu -->
+        <div class="hidden md:hidden bg-white border-t" id="mobile-menu">
+            <div class="container mx-auto px-4 py-2 space-y-3">
+                <a href="../index.html" class="block text-gray-700 hover:text-primary-600 font-medium">Accueil</a>
+                <a href="about.html" class="block text-gray-700 hover:text-primary-600 font-medium">À propos</a>
+                <a href="features.html" class="block text-gray-700 hover:text-primary-600 font-medium">Fonctionnalités</a>
+                <a href="download.html" class="block text-gray-700 hover:text-primary-600 font-medium">Télécharger</a>
+                <a href="faq.html" class="block text-gray-700 hover:text-primary-600 font-medium">FAQ</a>
+                <button id="translate-btn-mobile" class="block text-gray-700 hover:text-primary-600 font-medium flex items-center gap-2"><i class="ri-global-line"></i> EN</button>
+                <a href="contact.html" class="block bg-primary-500 text-white px-4 py-2 rounded-lg text-center">Contact</a>
+            </div>
+        </div>
+    </nav>
+    <div id="google_translate_element" style="position: absolute; top: 0; left: 0; opacity: 0; pointer-events: none;"></div>
+
+    <!-- Contact Header Section -->
+    <section class="relative pt-32 pb-20 bg-gradient-to-br from-primary-light/10 via-white to-beige-light/20">
+        <div class="max-w-7xl mx-auto px-6 lg:px-12">
+            <div class="text-center max-w-4xl mx-auto">
+                <h1 class="text-5xl lg:text-6xl font-black text-primary-dark mb-6">Contactez-Nous</h1>
+                <p class="text-xl text-gray-600">
+                    Notre équipe est à votre écoute pour répondre à toutes vos questions sur DoctAgri
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Contact Section -->
+    <section class="py-16">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-2 gap-12">
+                <!-- Left Column - Contact Form -->
+                <div>
+                    <h2 class="text-2xl font-bold text-primary-dark mb-2">Envoyez-nous un Message</h2>
+                    <p class="text-gray-600 mb-6">
+                        Remplissez le formulaire ci-dessous et nous vous répondrons dans les 24 heures.
+                    </p>
+                    
+                    <form class="space-y-6" id="contact-form">
+                        <!-- Full Name -->
+                        <div>
+                            <label for="name" class="block text-sm font-bold text-primary-dark mb-2">
+                                Nom complet *
+                            </label>
+                            <input 
+                                type="text" 
+                                id="name" 
+                                name="name" 
+                                placeholder="Votre nom" 
+                                required
+                                class="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-primary-light outline-none transition-colors"
+                            >
+                        </div>
+
+                        <!-- Email -->
+                        <div>
+                            <label for="email" class="block text-sm font-bold text-primary-dark mb-2">
+                                Email *
+                            </label>
+                            <input 
+                                type="email" 
+                                id="email" 
+                                name="email" 
+                                placeholder="votre@email.com" 
+                                required
+                                class="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-primary-light outline-none transition-colors"
+                            >
+                        </div>
+
+                        <!-- Phone -->
+                        <div>
+                            <label for="phone" class="block text-sm font-bold text-primary-dark mb-2">
+                                Téléphone
+                            </label>
+                            <input 
+                                type="tel" 
+                                id="phone" 
+                                name="phone" 
+                                placeholder="+228 XX XX XX XX"
+                                class="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-primary-light outline-none transition-colors"
+                            >
+                        </div>
+
+                        <!-- Subject -->
+                        <div>
+                            <label for="subject" class="block text-sm font-bold text-primary-dark mb-2">
+                                Sujet *
+                            </label>
+                            <select 
+                                id="subject" 
+                                name="subject" 
+                                required
+                                class="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-primary-light outline-none cursor-pointer transition-colors"
+                            >
+                                <option value="">Sélectionnez un sujet</option>
+                                <option value="support-technique">Support technique</option>
+                                <option value="question-generale">Question générale</option>
+                                <option value="partenariat">Partenariat</option>
+                                <option value="medias">Médias</option>
+                                <option value="autre">Autre</option>
+                            </select>
+                        </div>
+
+                        <!-- Message -->
+                        <div>
+                            <label for="message" class="block text-sm font-bold text-primary-dark mb-2">
+                                Message *
+                            </label>
+                            <textarea 
+                                id="message" 
+                                name="message" 
+                                rows="6" 
+                                placeholder="Décrivez votre demande..." 
+                                required
+                                maxlength="500"
+                                class="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-primary-light outline-none resize-none transition-colors"
+                            ></textarea>
+                            <div class="mt-2 text-sm text-gray-500">
+                                <span id="char-count">0</span>/500 caractères
+                            </div>
+                        </div>
+
+                        <!-- Submit Button -->
+                        <button 
+                            type="submit"
+                            class="w-full bg-primary-light text-white px-8 py-4 rounded-full font-bold hover:bg-primary-light/90 hover:scale-105 transition-all duration-300 shadow-lg flex items-center justify-center gap-2"
+                        >
+                            <i class="ri-send-plane-line text-xl"></i>
+                            Envoyer le message
+                        </button>
+                    </form>
+                </div>
+
+                <!-- Right Column - Contact Information -->
+                <div class="bg-white rounded-3xl shadow-xl border border-gray-100 p-8 lg:p-10">
+                    <h2 class="text-2xl font-extrabold text-primary-dark mb-3">Informations de Contact</h2>
+                    <p class="text-gray-600 mb-8">
+                        Vous pouvez également nous joindre directement via les moyens suivants :
+                    </p>
+                    
+                    <!-- Contact Details -->
+                    <div class="space-y-6 mb-10">
+                        <!-- Email -->
+                        <div class="flex items-start gap-4">
+                            <div class="flex-shrink-0 w-12 h-12 bg-primary-50 rounded-2xl flex items-center justify-center">
+                                <i class="ri-mail-line text-2xl text-primary-500"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold text-primary-dark mb-1">Email</h3>
+                                <a href="mailto:doctagri.expert@gmail.com" class="text-primary-light hover:text-primary-500 underline-offset-2 hover:underline">
+                                    doctagri.expert@gmail.com
+                                </a>
+                            </div>
+                        </div>
+                    
+                        <!-- Phone -->
+                        <div class="flex items-start gap-4">
+                            <div class="flex-shrink-0 w-12 h-12 bg-primary-50 rounded-2xl flex items-center justify-center">
+                                <i class="ri-phone-line text-2xl text-primary-500"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold text-primary-dark mb-1">Téléphone</h3>
+                                <a href="tel:+22890000000" class="text-primary-light hover:text-primary-500">
+                                    +228 91 77 45 63
+                                </a>
+                            </div>
+                        </div>
+                    
+                        <!-- Address -->
+                        <div class="flex items-start gap-4">
+                            <div class="flex-shrink-0 w-12 h-12 bg-primary-50 rounded-2xl flex items-center justify-center">
+                                <i class="ri-map-pin-line text-2xl text-primary-500"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold text-primary-dark mb-1">Adresse</h3>
+                                <p class="text-gray-600">
+                                    Lomé, Togo<br>
+                                    Quartier Administratif
+                                </p>
+                            </div>
+                        </div>
+                    
+                        <!-- Hours -->
+                        <div class="flex items-start gap-4">
+                            <div class="flex-shrink-0 w-12 h-12 bg-primary-50 rounded-2xl flex items-center justify-center">
+                                <i class="ri-time-line text-2xl text-primary-500"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold text-primary-dark mb-1">Horaires</h3>
+                                <p class="text-gray-600">
+                                    Lundi - Vendredi : 8h00 - 17h00<br>
+                                    Samedi : 9h00 - 13h00
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                
+                    <!-- Social Media -->
+                    <div class="mt-6 rounded-3xl bg-primary-50/80 px-6 py-7">
+                        <h3 class="text-lg font-bold text-primary-dark mb-2">Suivez-nous sur les Réseaux Sociaux</h3>
+                        <p class="text-gray-600 mb-5 text-sm">
+                            Restez informé de nos dernières actualités et conseils agricoles.
+                        </p>
+                        <div class="flex gap-4">
+                            <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer" class="w-11 h-11 bg-white rounded-full flex items-center justify-center shadow-md hover:shadow-lg transition hover:bg-gray-50">
+                                <i class="ri-facebook-fill text-xl text-primary-dark"></i>
+                            </a>
+                            <a href="https://x.com" target="_blank" rel="noopener noreferrer" class="w-11 h-11 bg-white rounded-full flex items-center justify-center shadow-md hover:shadow-lg transition hover:bg-gray-50">
+                                <i class="ri-twitter-x-fill text-xl text-primary-dark"></i>
+                            </a>
+                            <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer" class="w-11 h-11 bg-white rounded-full flex items-center justify-center shadow-md hover:shadow-lg transition hover:bg-gray-50">
+                                <i class="ri-linkedin-fill text-xl text-primary-dark"></i>
+                            </a>
+                            <a href="https://wa.me/22891774563" target="_blank" rel="noopener noreferrer" class="w-11 h-11 bg-white rounded-full flex items-center justify-center shadow-md hover:shadow-lg transition hover:bg-gray-50">
+                                <i class="ri-whatsapp-fill text-xl text-primary-dark"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Map Section -->
+    <section class="py-16 bg-white border-t border-gray-200">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-8">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-2">Notre Localisation</h2>
+                <p class="text-xl text-gray-600">Visitez-nous à notre bureau à Lomé</p>
+            </div>
+            <div class="rounded-xl overflow-hidden shadow-lg">
+                <iframe 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.521260322283!2d1.2157!3d6.1725!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1023e83e782f8d63%3A0x9c7b8b8b8b8b8b8b!2sLom%C3%A9%2C%20Togo!5e0!3m2!1sfr!2sfr!4v1234567890123!5m2!1sfr!2sfr" 
+                    width="100%" 
+                    height="500" 
+                    style="border:0;" 
+                    allowfullscreen="" 
+                    loading="lazy" 
+                    referrerpolicy="no-referrer-when-downgrade"
+                    class="w-full"
+                ></iframe>
+            </div>
+            <div class="mt-4 text-center">
+                <p class="text-sm text-gray-500">
+                    Vous pouvez zoomer sur la carte à l'aide de CTRL+Molette de défilement
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="py-20 bg-white border-t border-gray-200">
+        <div class="container mx-auto px-4">
+            <div class="max-w-2xl mx-auto text-center">
+                <h2 class="text-4xl md:text-5xl font-bold text-primary-dark mb-4">Vous avez une Question ?</h2>
+                <p class="text-lg text-gray-700 mb-8">
+                    Consultez notre FAQ pour trouver rapidement des réponses aux questions les plus fréquentes
+                </p>
+                <a href="faq.html" class="inline-flex items-center gap-3 bg-primary-light text-white px-8 py-4 rounded-full text-lg font-semibold hover:bg-primary-500 transition shadow-lg">
+                    <i class="ri-question-answer-line text-2xl"></i>
+                    Consulter la FAQ
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-primary-dark text-white py-16">
+        <div class="container mx-auto px-6 lg:px-12">
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
+                <div>
+                    <div class="flex items-center gap-3 mb-6">
+                        <img src="../assets/doct.jpeg" alt="DoctAgri Logo" class="h-10 w-auto">
+                        <span class="text-2xl font-bold text-white">DoctAgri</span>
+                    </div>
+                    <p class="text-gray-300 leading-relaxed mb-4">L'application mobile qui révolutionne le diagnostic agricole au Togo grâce à l'intelligence artificielle.</p>
+                    <div class="flex gap-4 mt-6">
+                        <a href="https://facebook.com/DoctAgri" target="_blank" rel="noopener" class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-primary-light transition-all">
+                            <i class="ri-facebook-fill"></i>
+                        </a>
+                        <a href="https://twitter.com/DoctAgri" target="_blank" rel="noopener" class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-primary-light transition-all">
+                            <i class="ri-twitter-x-line"></i>
+                        </a>
+                        <a href="https://www.linkedin.com/company/doctagri" target="_blank" rel="noopener" class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-primary-light transition-all">
+                            <i class="ri-linkedin-fill"></i>
+                        </a>
+                        <a href="https://wa.me/22891774563" target="_blank" rel="noopener" class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-primary-light transition-all">
+                            <i class="ri-whatsapp-line"></i>
+                        </a>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold mb-6">Newsletter</h3>
+                    <p class="text-gray-300 mb-6">Recevez nos actualités et conseils agricoles</p>
+                    <form id="newsletter-form-contact" class="space-y-4">
+                        <input type="email" name="email" required placeholder="Votre email" class="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-xl text-white placeholder-gray-400 focus:border-primary-light outline-none">
+                        <button type="submit" class="w-full bg-primary-light text-white px-6 py-3 rounded-xl font-bold hover:bg-primary-light/90 transition-all flex items-center justify-center gap-2">
+                            <i class="ri-mail-send-line"></i>
+                            S'abonner
+                        </button>
+                    </form>
+                    <p id="newsletter-message-contact" class="text-sm text-primary-light mt-4 hidden"></p>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold mb-6">Ressources</h3>
+                    <ul class="space-y-3">
+                        <li><a href="documentation.html" class="text-gray-300 hover:text-primary-light transition-colors flex items-center gap-2"><i class="ri-book-open-line"></i> Documentation</a></li>
+                        <li><a href="faq.html" class="text-gray-300 hover:text-primary-light transition-colors flex items-center gap-2"><i class="ri-question-line"></i> FAQ</a></li>
+                        <li><a href="download.html" class="text-gray-300 hover:text-primary-light transition-colors flex items-center gap-2"><i class="ri-download-line"></i> Téléchargement</a></li>
+                        <li><a href="privacy.html" class="text-gray-300 hover:text-primary-light transition-colors flex items-center gap-2"><i class="ri-file-text-line"></i> Politique de confidentialité</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold mb-6">Navigation</h3>
+                    <ul class="space-y-3">
+                        <li><a href="../index.html" class="text-gray-300 hover:text-primary-light transition-colors">Accueil</a></li>
+                        <li><a href="about.html" class="text-gray-300 hover:text-primary-light transition-colors">À propos</a></li>
+                        <li><a href="features.html" class="text-gray-300 hover:text-primary-light transition-colors">Fonctionnalités</a></li>
+                        <li><a href="contact.html" class="text-gray-300 hover:text-primary-light transition-colors">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+                <p class="text-gray-400 text-sm">© 2026 DoctAgri. Tous droits réservés.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/main.js"></script>
+    <script>
+        // Character counter for message textarea
+        const messageTextarea = document.getElementById('message');
+        const charCount = document.getElementById('char-count');
+        
+        if (messageTextarea && charCount) {
+            messageTextarea.addEventListener('input', function() {
+                charCount.textContent = this.value.length;
+            });
+        }
+
+        // Form submission handler (API)
+        const contactForm = document.getElementById('contact-form');
+        if (contactForm) {
+            contactForm.addEventListener('submit', async function(e) {
+                e.preventDefault();
+                
+                const payload = {
+                    name: this.querySelector('[name="name"]').value,
+                    email: this.querySelector('[name="email"]').value,
+                    phone: this.querySelector('[name="phone"]').value || '',
+                    subject: this.querySelector('[name="subject"]').value,
+                    message: this.querySelector('[name="message"]').value
+                };
+                
+                try {
+                    const response = await fetch('/api/contact', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(payload),
+                    });
+                    
+                    if (response.ok) {
+                        alert('Merci ! Votre message a bien été envoyé. Nous vous répondrons bientôt.');
+                        this.reset();
+                        if (charCount) charCount.textContent = '0';
+                    } else {
+                        const data = await response.json().catch(() => ({}));
+                        alert(data.error || 'Une erreur est survenue. Veuillez réessayer.');
+                    }
+                } catch (error) {
+                    alert('Service indisponible. Lancez le serveur pour activer le formulaire de contact.');
+                }
+            });
+        }
+        
+        // Newsletter form handler
+        const newsletterFormContact = document.getElementById('newsletter-form-contact');
+        const newsletterMessageContact = document.getElementById('newsletter-message-contact');
+        
+        if (newsletterFormContact) {
+            newsletterFormContact.addEventListener('submit', async function(e) {
+                e.preventDefault();
+                const email = this.querySelector('input[name="email"]').value;
+                
+                try {
+                    const response = await fetch('/api/newsletter', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ email }),
+                    });
+                    
+                    if (response.ok) {
+                        newsletterMessageContact.textContent = 'Merci ! Vous êtes inscrit à notre newsletter.';
+                        newsletterMessageContact.classList.remove('hidden');
+                        this.reset();
+                        setTimeout(() => newsletterMessageContact.classList.add('hidden'), 5000);
+                    } else {
+                        const data = await response.json().catch(() => ({}));
+                        newsletterMessageContact.textContent = data.error || 'Une erreur est survenue.';
+                        newsletterMessageContact.classList.remove('hidden');
+                    }
+                } catch (error) {
+                    newsletterMessageContact.textContent = 'Service indisponible. Lancez le serveur pour activer les inscriptions.';
+                    newsletterMessageContact.classList.remove('hidden');
+                }
+            });
+        }
+    </script>
+
+    <!-- Chatbot widget connecté à l'API /api/chat -->
+    <div id="chat-widget" class="fixed bottom-24 right-6 w-80 max-w-[90vw] bg-white rounded-2xl shadow-2xl border border-gray-200 flex flex-col overflow-hidden hidden z-50">
+        <div class="bg-primary-light text-white px-4 py-3 flex items-center justify-between">
+            <div class="flex items-center gap-2">
+                <i class="ri-customer-service-2-line text-xl"></i>
+                <span class="font-semibold">DoctAgri Chat</span>
+            </div>
+            <button id="chat-close" type="button" class="text-white/80 hover:text-white">
+                <i class="ri-close-line text-xl"></i>
+            </button>
+        </div>
+        <div id="chat-messages" class="p-4 space-y-3 text-sm h-64 overflow-y-auto bg-gray-50">
+            <div class="flex">
+                <div class="bg-white border border-gray-200 rounded-2xl px-3 py-2 max-w-[80%] text-sm">
+                    Bonjour 👋, je suis l'assistant virtuel de DoctAgri. Posez-moi votre question.
+                </div>
+            </div>
+        </div>
+        <form id="chat-form" class="border-t border-gray-200 flex items-center gap-2 px-3 py-2 bg-white">
+            <input 
+                id="chat-input" 
+                type="text" 
+                placeholder="Écrivez votre message..." 
+                class="flex-1 border border-gray-300 rounded-full px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-primary-light" 
+                autocomplete="off"
+            >
+            <button type="submit" class="bg-primary-light text-white rounded-full w-9 h-9 flex items-center justify-center hover:bg-primary-500 transition">
+                <i class="ri-send-plane-2-line text-lg"></i>
+            </button>
+        </form>
+    </div>
+
+    <!-- Floating Talk with Us Button -->
+    <button id="chat-toggle" type="button" class="fixed bottom-6 right-6 bg-primary-light text-white px-4 py-3 rounded-lg shadow-lg hover:bg-primary-500 transition flex items-center gap-2 z-50">
+        <i class="ri-customer-service-2-line text-xl"></i>
+        <span class="font-medium">Talk with Us</span>
+    </button>
+
+    <script>
+        // Logique du widget de chat connecté à /api/chat
+        const chatToggle = document.getElementById('chat-toggle');
+        const chatWidget = document.getElementById('chat-widget');
+        const chatClose = document.getElementById('chat-close');
+        const chatForm = document.getElementById('chat-form');
+        const chatInput = document.getElementById('chat-input');
+        const chatMessages = document.getElementById('chat-messages');
+
+        function addChatMessage(text, from = 'bot') {
+            if (!chatMessages) return;
+            const wrapper = document.createElement('div');
+            wrapper.className = from === 'user' ? 'flex justify-end' : 'flex';
+            const bubble = document.createElement('div');
+            bubble.className = from === 'user'
+                ? 'bg-primary-light text-white rounded-2xl px-3 py-2 max-w-[80%] text-sm'
+                : 'bg-white border border-gray-200 rounded-2xl px-3 py-2 max-w-[80%] text-sm';
+            bubble.textContent = text;
+            wrapper.appendChild(bubble);
+            chatMessages.appendChild(wrapper);
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+        }
+
+        if (chatToggle && chatWidget) {
+            chatToggle.addEventListener('click', () => {
+                chatWidget.classList.toggle('hidden');
+                if (!chatWidget.classList.contains('hidden') && chatInput) {
+                    chatInput.focus();
+                }
+            });
+        }
+
+        if (chatClose && chatWidget) {
+            chatClose.addEventListener('click', () => {
+                chatWidget.classList.add('hidden');
+            });
+        }
+
+        if (chatForm && chatInput) {
+            chatForm.addEventListener('submit', async function(e) {
+                e.preventDefault();
+                const text = chatInput.value.trim();
+                if (!text) return;
+                addChatMessage(text, 'user');
+                chatInput.value = '';
+
+                addChatMessage('Je réfléchis à votre question...', 'bot');
+
+                try {
+                    const response = await fetch('/api/chat', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({ message: text })
+                    });
+
+                    const data = await response.json();
+                    // Supprimer le dernier message "Je réfléchis..."
+                    if (chatMessages.lastChild) {
+                        chatMessages.removeChild(chatMessages.lastChild);
+                    }
+
+                    if (data.reply) {
+                        addChatMessage(data.reply, 'bot');
+                    } else {
+                        addChatMessage("Désolé, je n'ai pas pu obtenir de réponse pour le moment.", 'bot');
+                    }
+                } catch (err) {
+                    addChatMessage("Une erreur est survenue avec le service de chat.", 'bot');
+                }
+            });
+        }
+    </script>
+</body>
+</html>
+
+
+
+
+

@@ -1,0 +1,25 @@
+/* Logo styles */
+.logo {
+    height: 2.5rem; /* 40px */
+    width: auto;
+    display: inline-block;
+    object-fit: contain;
+}
+
+.logo-white {
+    height: 2.5rem; /* 40px */
+    width: auto;
+    display: inline-block;
+    object-fit: contain;
+    filter: brightness(0) invert(1); /* Makes logo white for transparent backgrounds */
+}
+
+.logo-footer {
+    height: 2rem; /* 32px */
+    width: auto;
+    display: inline-block;
+    object-fit: contain;
+    filter: brightness(0) invert(1); /* Makes logo white for dark backgrounds */
+}
+
+

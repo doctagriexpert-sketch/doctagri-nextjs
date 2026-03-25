@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Documentation DoctAgri - Guide d'utilisation, installation et diagnostic des maladies des plantes.">
+    <title>Documentation - DoctAgri</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Crimson+Pro:wght@400;600&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: {
+                            DEFAULT: '#2D5016',
+                            light: '#00C853',
+                            dark: '#1B3A1F',
+                            50: '#F5F1E8',
+                            100: '#E8DCC4',
+                            500: '#00C853',
+                            600: '#2D5016',
+                            700: '#1B3A1F',
+                        },
+                    },
+                },
+            },
+        }
+    </script>
+    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+    <script>
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement({pageLanguage: 'fr'}, 'google_translate_element');
+        }
+    </script>
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/logo.css">
+</head>
+<body class="bg-gray-50">
+    <!-- Navbar -->
+    <nav class="bg-white shadow-sm sticky top-0 z-40">
+        <div class="container mx-auto px-4 py-2 flex items-center justify-between">
+            <div class="flex items-center gap-2">
+                <a href="../index.html" class="flex items-center gap-2">
+                    <img src="../assets/doct.jpeg" alt="DoctAgri Logo" class="h-8 w-auto">
+                    <span class="text-xl font-bold text-primary-dark">DoctAgri</span>
+                </a>
+            </div>
+            <div class="hidden md:flex items-center space-x-6">
+                <a href="../index.html" class="text-gray-700 hover:text-primary-light font-medium">Accueil</a>
+                <a href="about.html" class="text-gray-700 hover:text-primary-light font-medium">À propos</a>
+                <a href="features.html" class="text-gray-700 hover:text-primary-light font-medium">Fonctionnalités</a>
+                <a href="download.html" class="text-gray-700 hover:text-primary-light font-medium">Télécharger</a>
+                <a href="faq.html" class="text-gray-700 hover:text-primary-light font-medium">FAQ</a>
+                <button id="translate-btn" class="text-gray-700 hover:text-primary-light font-medium flex items-center gap-2"><i class="ri-global-line"></i> EN</button>
+                <a href="contact.html" class="bg-primary-light text-white px-4 py-2 rounded-lg hover:bg-primary-500 transition">Contact</a>
+            </div>
+            <button class="md:hidden text-gray-700" id="mobile-menu-btn">
+                <i class="ri-menu-line text-2xl"></i>
+            </button>
+        </div>
+        <div class="hidden md:hidden bg-white border-t" id="mobile-menu">
+            <div class="container mx-auto px-4 py-2 space-y-3">
+                <a href="../index.html" class="block text-gray-700 hover:text-primary-light font-medium">Accueil</a>
+                <a href="about.html" class="block text-gray-700 hover:text-primary-light font-medium">À propos</a>
+                <a href="features.html" class="block text-gray-700 hover:text-primary-light font-medium">Fonctionnalités</a>
+                <a href="download.html" class="block text-gray-700 hover:text-primary-light font-medium">Télécharger</a>
+                <a href="faq.html" class="block text-gray-700 hover:text-primary-light font-medium">FAQ</a>
+                <button id="translate-btn-mobile" class="block text-gray-700 hover:text-primary-light font-medium flex items-center gap-2"><i class="ri-global-line"></i> EN</button>
+                <a href="contact.html" class="block bg-primary-light text-white px-4 py-2 rounded-lg text-center">Contact</a>
+            </div>
+        </div>
+    </nav>
+    <div id="google_translate_element" style="position: absolute; top: 0; left: 0; opacity: 0; pointer-events: none;"></div>
+
+    <!-- Hero -->
+    <section class="py-16 bg-gradient-to-b from-primary-light/20 to-white border-b border-gray-200">
+        <div class="container mx-auto px-4">
+            <h1 class="text-4xl md:text-5xl font-bold text-primary-dark mb-4">Documentation</h1>
+            <p class="text-xl text-gray-700 max-w-3xl">
+                Guide d'utilisation de l'application DoctAgri : prise en main, diagnostic des maladies et bonnes pratiques.
+            </p>
+        </div>
+    </section>
+
+    <!-- Contenu -->
+    <main class="py-12">
+        <div class="container mx-auto px-4 max-w-4xl">
+            <!-- Sommaire -->
+            <nav class="bg-white rounded-xl shadow-sm border border-gray-100 p-6 mb-12">
+                <h2 class="text-lg font-bold text-primary-dark mb-4">Sommaire</h2>
+                <ul class="space-y-2 text-gray-700">
+                    <li><a href="#introduction" class="text-primary-light hover:text-primary-600 font-medium">1. Introduction</a></li>
+                    <li><a href="#installation" class="text-primary-light hover:text-primary-600 font-medium">2. Installation</a></li>
+                    <li><a href="#premier-usage" class="text-primary-light hover:text-primary-600 font-medium">3. Premier usage</a></li>
+                    <li><a href="#diagnostic" class="text-primary-light hover:text-primary-600 font-medium">4. Réaliser un diagnostic</a></li>
+                    <li><a href="#cultures" class="text-primary-light hover:text-primary-600 font-medium">5. Cultures supportées</a></li>
+                    <li><a href="#conseils-audio" class="text-primary-light hover:text-primary-600 font-medium">6. Conseils audio (éwé, kabye, français)</a></li>
+                    <li><a href="#hors-ligne" class="text-primary-light hover:text-primary-600 font-medium">7. Utilisation hors ligne</a></li>
+                    <li><a href="#support" class="text-primary-light hover:text-primary-600 font-medium">8. Support</a></li>
+                </ul>
+            </nav>
+
+            <div class="space-y-12">
+                <section id="introduction" class="bg-white rounded-2xl shadow-sm border border-gray-100 p-8">
+                    <h2 class="text-2xl font-bold text-primary-dark mb-4 flex items-center gap-2">
+                        <i class="ri-book-open-line text-primary-light"></i>
+                        1. Introduction
+                    </h2>
+                    <p class="text-gray-700 leading-relaxed mb-4">
+                        <strong>DoctAgri</strong> est une application mobile de diagnostic des maladies des plantes par intelligence artificielle, conçue pour les agriculteurs togolais. Elle fonctionne <strong>entièrement hors ligne</strong> après installation et propose des conseils en <strong>français</strong>, en <strong>éwé</strong> et en <strong>kabye</strong>.
+                    </p>
+                    <p class="text-gray-700 leading-relaxed">
+                        Cette documentation décrit l'installation, la prise en main et les bonnes pratiques pour obtenir des diagnostics fiables et appliquer les traitements recommandés.
+                    </p>
+                </section>
+
+                <section id="installation" class="bg-white rounded-2xl shadow-sm border border-gray-100 p-8">
+                    <h2 class="text-2xl font-bold text-primary-dark mb-4 flex items-center gap-2">
+                        <i class="ri-download-cloud-line text-primary-light"></i>
+                        2. Installation
+                    </h2>
+                    <p class="text-gray-700 leading-relaxed mb-4">
+                        DoctAgri est disponible sur <strong>Google Play Store</strong> et en téléchargement direct (APK) pour les appareils Android 8.0 et supérieur.
+                    </p>
+                    <ul class="list-disc list-inside text-gray-700 space-y-2 mb-4">
+                        <li>Espace requis : environ 150 Mo (application + modèles IA).</li>
+                        <li>RAM recommandée : 2 Go minimum, 3 Go pour un confort optimal.</li>
+                        <li>Une connexion internet est nécessaire uniquement pour le téléchargement initial.</li>
+                    </ul>
+                    <a href="download.html" class="inline-flex items-center gap-2 text-primary-light font-semibold hover:text-primary-600">
+                        Voir le guide d'installation détaillé
+                        <i class="ri-arrow-right-line"></i>
+                    </a>
+                </section>
+
+                <section id="premier-usage" class="bg-white rounded-2xl shadow-sm border border-gray-100 p-8">
+                    <h2 class="text-2xl font-bold text-primary-dark mb-4 flex items-center gap-2">
+                        <i class="ri-smartphone-line text-primary-light"></i>
+                        3. Premier usage
+                    </h2>
+                    <p class="text-gray-700 leading-relaxed mb-4">
+                        Au premier lancement, vous pouvez choisir la langue de l'interface et la langue des conseils audio. Les diagnostics sont enregistrés dans l'historique de l'application pour un suivi de vos cultures.
+                    </p>
+                    <p class="text-gray-700 leading-relaxed">
+                        Aucun compte utilisateur n'est requis : l'application est utilisable immédiatement après l'installation.
+                    </p>
+                </section>
+
+                <section id="diagnostic" class="bg-white rounded-2xl shadow-sm border border-gray-100 p-8">
+                    <h2 class="text-2xl font-bold text-primary-dark mb-4 flex items-center gap-2">
+                        <i class="ri-camera-line text-primary-light"></i>
+                        4. Réaliser un diagnostic
+                    </h2>
+                    <ol class="list-decimal list-inside text-gray-700 space-y-3 mb-4">
+                        <li><strong>Sélectionnez la culture</strong> concernée (tomate, maïs, piment, manioc).</li>
+                        <li><strong>Photographiez</strong> la partie malade de la plante (feuille, tige, fruit) en veillant à un bon éclairage et à une mise au point nette.</li>
+                        <li>L'application analyse l'image localement et affiche le <strong>résultat du diagnostic</strong> en quelques secondes.</li>
+                        <li>Consultez les <strong>recommandations de traitement</strong> (biologiques et/ou chimiques) et, si besoin, écoutez les conseils audio.</li>
+                    </ol>
+                    <div class="bg-primary-50 border border-primary-100 rounded-xl p-4">
+                        <p class="text-primary-dark text-sm font-medium flex items-start gap-2">
+                            <i class="ri-lightbulb-line text-primary-light flex-shrink-0 mt-0.5"></i>
+                            Pour de meilleurs résultats : prenez la photo en plein jour, cadrez uniquement la zone symptomatique et évitez les ombres portées.
+                        </p>
+                    </div>
+                </section>
+
+                <section id="cultures" class="bg-white rounded-2xl shadow-sm border border-gray-100 p-8">
+                    <h2 class="text-2xl font-bold text-primary-dark mb-4 flex items-center gap-2">
+                        <i class="ri-plant-line text-primary-light"></i>
+                        5. Cultures supportées
+                    </h2>
+                    <p class="text-gray-700 leading-relaxed mb-4">
+                        Les cultures actuellement prises en charge sont :
+                    </p>
+                    <ul class="list-disc list-inside text-gray-700 space-y-1 mb-4">
+                        <li>Tomate</li>
+                        <li>Maïs</li>
+                        <li>Piment</li>
+                        <li>Manioc</li>
+                    </ul>
+                    <p class="text-gray-700 leading-relaxed">
+                        D'autres cultures peuvent être ajoutées lors des mises à jour. Les mises à jour sont optionnelles et peuvent être téléchargées via Wi-Fi.
+                    </p>
+                </section>
+
+                <section id="conseils-audio" class="bg-white rounded-2xl shadow-sm border border-gray-100 p-8">
+                    <h2 class="text-2xl font-bold text-primary-dark mb-4 flex items-center gap-2">
+                        <i class="ri-volume-up-line text-primary-light"></i>
+                        6. Conseils audio (éwé, kabye, français)
+                    </h2>
+                    <p class="text-gray-700 leading-relaxed mb-4">
+                        Après chaque diagnostic, un bouton permet d'écouter les conseils et recommandations dans la langue choisie (français, éwé ou kabye). Cette fonctionnalité est particulièrement utile pour les utilisateurs peu ou pas alphabétisés.
+                    </p>
+                    <p class="text-gray-700 leading-relaxed">
+                        Vous pouvez modifier la langue des conseils audio dans les paramètres de l'application à tout moment.
+                    </p>
+                </section>
+
+                <section id="hors-ligne" class="bg-white rounded-2xl shadow-sm border border-gray-100 p-8">
+                    <h2 class="text-2xl font-bold text-primary-dark mb-4 flex items-center gap-2">
+                        <i class="ri-wifi-off-line text-primary-light"></i>
+                        7. Utilisation hors ligne
+                    </h2>
+                    <p class="text-gray-700 leading-relaxed mb-4">
+                        DoctAgri ne nécessite <strong>aucune connexion internet</strong> pour réaliser les diagnostics. Les modèles d'intelligence artificielle sont embarqués dans l'application. Seuls le téléchargement initial et les mises à jour optionnelles requièrent une connexion.
+                    </p>
+                    <p class="text-gray-700 leading-relaxed">
+                        L'utilisation hors ligne permet un usage en zone rurale sans couverture réseau et sans coût de données.
+                    </p>
+                </section>
+
+                <section id="support" class="bg-white rounded-2xl shadow-sm border border-gray-100 p-8">
+                    <h2 class="text-2xl font-bold text-primary-dark mb-4 flex items-center gap-2">
+                        <i class="ri-customer-service-2-line text-primary-light"></i>
+                        8. Support
+                    </h2>
+                    <p class="text-gray-700 leading-relaxed mb-4">
+                        Pour toute question technique, signalement de bug ou suggestion d'amélioration, vous pouvez nous contacter via la page Contact ou par email à <a href="mailto:contact@doctagri.tg" class="text-primary-light font-semibold hover:underline">contact@doctagri.tg</a>.
+                    </p>
+                    <a href="contact.html" class="inline-flex items-center gap-2 bg-primary-light text-white px-6 py-3 rounded-lg font-semibold hover:bg-primary-500 transition">
+                        <i class="ri-mail-line"></i>
+                        Nous contacter
+                    </a>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-primary-dark text-white py-12 mt-16">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-center gap-4">
+                <p class="text-white/80 text-sm">© 2026 DoctAgri. Tous droits réservés.</p>
+                <a href="../index.html" class="text-primary-light hover:text-white text-sm font-medium">Retour à l'accueil</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/main.js"></script>
+</body>
+</html>
+
+
+
+

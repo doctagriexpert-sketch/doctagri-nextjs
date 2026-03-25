@@ -1,0 +1,921 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Découvrez toutes les fonctionnalités de DoctAgri - Diagnostic IA, Mode Hors Ligne, Audio Multilingue et plus.">
+    <title>Fonctionnalités - DoctAgri</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Crimson+Pro:wght@400;600&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: {
+                            DEFAULT: '#2D5016',
+                            light: '#00C853',
+                            dark: '#1B3A1F',
+                            50: '#F5F1E8',
+                            100: '#E8DCC4',
+                            500: '#00C853',
+                            600: '#2D5016',
+                            700: '#1B3A1F',
+                        },
+                    },
+                },
+            },
+        }
+    </script>
+    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+    <script>
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement({pageLanguage: 'fr'}, 'google_translate_element');
+        }
+    </script>
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/logo.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="bg-white shadow-sm sticky top-0 z-40">
+        <div class="container mx-auto px-4 py-2 flex items-center justify-between">
+            <div class="flex items-center gap-2">
+                <a href="../index.html" class="flex items-center gap-2">
+                    <img src="../assets/doct.jpeg" alt="DoctAgri Logo" class="h-8 w-auto">
+                    <span class="text-xl font-bold text-primary-dark">DoctAgri</span>
+                </a>
+            </div>
+            <div class="hidden md:flex items-center space-x-6">
+                <a href="../index.html" class="text-gray-700 hover:text-primary-light font-medium">Accueil</a>
+                <a href="about.html" class="text-gray-700 hover:text-primary-light font-medium">À propos</a>
+                <a href="features.html" class="text-primary-light font-medium">Fonctionnalités</a>
+                <a href="download.html" class="text-gray-700 hover:text-primary-light font-medium">Télécharger</a>
+                <a href="faq.html" class="text-gray-700 hover:text-primary-light font-medium">FAQ</a>
+                <button id="translate-btn" class="text-gray-700 hover:text-primary-light font-medium flex items-center gap-2"><i class="ri-global-line"></i> EN</button>
+                <a href="contact.html" class="bg-primary-light text-white px-4 py-2 rounded-lg hover:bg-primary-500 transition">Contact</a>
+            </div>
+            <button class="md:hidden text-gray-700" id="mobile-menu-btn">
+                <i class="ri-menu-line text-2xl"></i>
+            </button>
+        </div>
+        <!-- Mobile Menu -->
+        <div class="hidden md:hidden bg-white border-t" id="mobile-menu">
+            <div class="container mx-auto px-4 py-2 space-y-3">
+                <a href="../index.html" class="block text-gray-700 hover:text-primary-light font-medium">Accueil</a>
+                <a href="about.html" class="block text-gray-700 hover:text-primary-light font-medium">À propos</a>
+                <a href="features.html" class="block text-primary-light font-medium">Fonctionnalités</a>
+                <a href="download.html" class="block text-gray-700 hover:text-primary-light font-medium">Télécharger</a>
+                <a href="faq.html" class="block text-gray-700 hover:text-primary-light font-medium">FAQ</a>
+                <button id="translate-btn-mobile" class="block text-gray-700 hover:text-primary-light font-medium flex items-center gap-2"><i class="ri-global-line"></i> EN</button>
+                <a href="contact.html" class="block bg-primary-light text-white px-4 py-2 rounded-lg text-center">Contact</a>
+            </div>
+        </div>
+    </nav>
+    <div id="google_translate_element" style="position: absolute; top: 0; left: 0; opacity: 0; pointer-events: none;"></div>
+
+    <!-- Hero Section -->
+    <section class="py-20 bg-gradient-to-br from-primary-dark via-primary-dark to-primary-light/20 relative overflow-hidden">
+        <div class="container mx-auto px-4 text-center relative z-10">
+            <h1 class="text-5xl md:text-7xl font-bold mb-4">
+                <span class="text-white">Fonctionnalités</span> <span class="text-primary-light">Complètes</span>
+            </h1>
+            <p class="text-xl text-white/90 max-w-3xl mx-auto">
+                Découvrez toutes les capacités de DoctAgri pour transformer votre pratique agricole
+            </p>
+        </div>
+    </section>
+
+    <!-- Feature Tabs -->
+    <section class="py-8 bg-white border-b border-gray-200">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-wrap justify-center gap-3">
+                <button onclick="showTab('diagnostic')" id="tab-diagnostic" class="feature-tab active px-6 py-3 rounded-full bg-primary-light text-white font-semibold flex items-center gap-2 transition shadow-md">
+                    <i class="ri-camera-line"></i>
+                    Diagnostic IA
+                </button>
+                <button onclick="showTab('offline')" id="tab-offline" class="feature-tab px-6 py-3 rounded-full bg-gray-200 text-gray-700 font-semibold flex items-center gap-2 transition hover:bg-gray-300">
+                    <i class="ri-wifi-off-line"></i>
+                    Mode Hors Ligne
+                </button>
+                <button onclick="showTab('audio')" id="tab-audio" class="feature-tab px-6 py-3 rounded-full bg-gray-200 text-gray-700 font-semibold flex items-center gap-2 transition hover:bg-gray-300">
+                    <i class="ri-volume-up-line"></i>
+                    Audio Multilingue
+                </button>
+                <button onclick="showTab('traitements')" id="tab-traitements" class="feature-tab px-6 py-3 rounded-full bg-gray-200 text-gray-700 font-semibold flex items-center gap-2 transition hover:bg-gray-300">
+                    <i class="ri-medicine-bottle-line"></i>
+                    Traitements
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Diagnostic IA Tab Content -->
+    <div id="content-diagnostic" class="tab-content">
+        <section class="py-20 bg-white border-t border-gray-200">
+            <div class="container mx-auto px-4">
+                <div class="grid md:grid-cols-2 gap-12 items-center">
+                    <div>
+                        <h2 class="text-4xl md:text-5xl font-bold text-primary-dark mb-6">Diagnostic par Intelligence Artificielle</h2>
+                        <p class="text-lg text-gray-700 mb-6">
+                            Notre technologie <strong class="text-primary-dark"> d'IA embarquée </strong> pour analyser instantanément les photos de vos plantes et détecter les maladies, carences et parasites.
+                        </p>
+                        <div class="space-y-4">
+                            <div class="flex items-start gap-4">
+                                <div class="flex-shrink-0 w-14 h-14 bg-green-100 rounded-xl flex items-center justify-center border-2 border-green-300">
+                                    <i class="ri-flashlight-fill text-2xl text-primary-light"></i>
+                                </div>
+                                <div>
+                                    <h3 class="font-bold text-gray-900 mb-1">Détection instantanée</h3>
+                                    <p class="text-gray-700">Résultats en moins de 3 secondes après la prise de photo</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start gap-4">
+                                <div class="flex-shrink-0 w-14 h-14 bg-green-100 rounded-xl flex items-center justify-center border-2 border-green-300">
+                                    <i class="ri-search-line text-2xl text-primary-light"></i>
+                                </div>
+                                <div>
+                                    <h3 class="font-bold text-gray-900 mb-1">Haute précision</h3>
+                                    <p class="text-gray-700">Taux de précision supérieur à 95% pour les cultures prioritaires (tomate, maïs, manioc)</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start gap-4">
+                                <div class="flex-shrink-0 w-14 h-14 bg-green-100 rounded-xl flex items-center justify-center border-2 border-green-300">
+                                    <i class="ri-search-eye-line text-2xl text-primary-light"></i>
+                                </div>
+                                <div>
+                                    <h3 class="font-bold text-gray-900 mb-1">Multi-pathologies</h3>
+                                    <p class="text-gray-700">Détection des maladies, carences nutritionnelles et attaques de parasites</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start gap-4">
+                                <div class="flex-shrink-0 w-14 h-14 bg-green-100 rounded-xl flex items-center justify-center border-2 border-green-300">
+                                    <i class="ri-history-line text-2xl text-primary-light"></i>
+                                </div>
+                                <div>
+                                    <h3 class="font-bold text-gray-900 mb-1">Historique des diagnostics</h3>
+                                    <p class="text-gray-700">Conservez et consultez l'historique de tous vos diagnostics</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="relative flex items-center justify-center">
+                        <!-- Mockup du smartphone avec feuille malade - Taille réduite -->
+                        <div class="relative" style="max-width: 280px;">
+                            <div class="bg-gray-900 rounded-[3rem] p-2 shadow-2xl" style="width: 280px; height: 560px;">
+                                <div class="bg-white rounded-[2.5rem] overflow-hidden h-full flex flex-col">
+                                    <!-- Header noir avec Scan -->
+                                    <div class="bg-black px-3 py-2 flex items-center justify-between">
+                                        <i class="ri-arrow-left-s-line text-white text-lg"></i>
+                                        <span class="text-white font-bold text-xs">Scan</span>
+                                        <i class="ri-cursor-fill text-primary-light text-lg"></i>
+                                    </div>
+                                    <!-- Image de la feuille malade avec interface améliorée -->
+                                    <div class="flex-1 bg-gray-100 relative overflow-hidden">
+                                        <img src="../assets/malade1.jpg" alt="Feuille malade analysée" class="w-full h-full object-cover" id="diagnostic-leaf-feature" style="object-position: center;">
+                                        <!-- Overlay d'analyse -->
+                                        <div class="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black/20"></div>
+                                        
+                                        <!-- Zone de recommandations au milieu (simulation) -->
+                                        <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-11/12 bg-white/95 backdrop-blur-sm rounded-xl p-3 shadow-lg border border-gray-200" id="diagnostic-recommendations">
+                                            <div class="text-xs font-bold text-primary-dark mb-2">Problèmes détectés :</div>
+                                            <div class="space-y-1.5">
+                                                <div class="flex items-center gap-2 text-xs text-gray-700">
+                                                    <i class="ri-alert-line text-red-500"></i>
+                                                    <span>Mildiou détecté</span>
+                                                </div>
+                                                <div class="flex items-center gap-2 text-xs text-gray-700">
+                                                    <i class="ri-alert-line text-orange-500"></i>
+                                                    <span>Carence en azote</span>
+                                                </div>
+                                                <div class="flex items-center gap-2 text-xs text-gray-700">
+                                                    <i class="ri-checkbox-circle-line text-green-500"></i>
+                                                    <span>Analyse terminée</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        <!-- Indicateur d'analyse en bas -->
+                                        <div class="absolute bottom-3 left-1/2 transform -translate-x-1/2 bg-black/80 text-white px-3 py-1.5 rounded-full text-xs flex items-center gap-2">
+                                            <div class="w-1.5 h-1.5 bg-primary-light rounded-full animate-pulse"></div>
+                                            <span>Analyse en cours...</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Mode Hors Ligne Tab Content -->
+    <div id="content-offline" class="tab-content hidden">
+        <section class="py-20 bg-beige-light border-t border-gray-200">
+            <div class="container mx-auto px-4">
+                <div class="grid md:grid-cols-2 gap-12 items-center">
+                    <div class="relative order-2 md:order-1 flex items-center justify-center">
+                        <!-- Mockup du smartphone montrant le mode hors ligne - Taille réduite -->
+                        <div class="relative" style="max-width: 240px;">
+                            <div class="bg-gray-900 rounded-[3rem] p-2 shadow-2xl" style="width: 240px; height: 480px;">
+                                <div class="bg-white rounded-[2.5rem] overflow-hidden h-full flex flex-col">
+                                    <!-- Header avec indication hors ligne -->
+                                    <div class="bg-primary-dark px-3 py-2 flex items-center justify-between">
+                                        <i class="ri-arrow-left-s-line text-white text-lg"></i>
+                                        <span class="text-white font-bold text-xs">DoctAgri</span>
+                                        <i class="ri-wifi-off-line text-white text-lg"></i>
+                                    </div>
+                                    <!-- Contenu de l'app hors ligne -->
+                                    <div class="flex-1 bg-gray-50 p-4 overflow-y-auto">
+                                        <!-- Indicateur hors ligne -->
+                                        <div class="bg-yellow-50 border border-yellow-200 rounded-lg p-2 mb-3 flex items-center gap-2">
+                                            <i class="ri-wifi-off-line text-yellow-600 text-sm"></i>
+                                            <span class="text-xs text-yellow-800 font-medium">Mode Hors Ligne Actif</span>
+                                        </div>
+                                        
+                                        <!-- Menu principal -->
+                                        <div class="space-y-2 mb-4">
+                                            <div class="bg-white rounded-lg p-3 shadow-sm border border-gray-100">
+                                                <div class="flex items-center gap-3">
+                                                    <div class="w-10 h-10 bg-green-100 rounded-lg flex items-center justify-center">
+                                                        <i class="ri-camera-line text-primary-light"></i>
+                                                    </div>
+                                                    <div class="flex-1">
+                                                        <div class="text-xs font-semibold text-gray-900">Diagnostic IA</div>
+                                                        <div class="text-xs text-gray-500">Disponible hors ligne</div>
+                                                    </div>
+                                                    <i class="ri-checkbox-circle-fill text-green-500 text-sm"></i>
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="bg-white rounded-lg p-3 shadow-sm border border-gray-100">
+                                                <div class="flex items-center gap-3">
+                                                    <div class="w-10 h-10 bg-green-100 rounded-lg flex items-center justify-center">
+                                                        <i class="ri-book-line text-primary-light"></i>
+                                                    </div>
+                                                    <div class="flex-1">
+                                                        <div class="text-xs font-semibold text-gray-900">Bibliothèque</div>
+                                                        <div class="text-xs text-gray-500">Base locale chargée</div>
+                                                    </div>
+                                                    <i class="ri-checkbox-circle-fill text-green-500 text-sm"></i>
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="bg-white rounded-lg p-3 shadow-sm border border-gray-100">
+                                                <div class="flex items-center gap-3">
+                                                    <div class="w-10 h-10 bg-green-100 rounded-lg flex items-center justify-center">
+                                                        <i class="ri-calendar-line text-primary-light"></i>
+                                                    </div>
+                                                    <div class="flex-1">
+                                                        <div class="text-xs font-semibold text-gray-900">Calendrier</div>
+                                                        <div class="text-xs text-gray-500">Synchronisé</div>
+                                                    </div>
+                                                    <i class="ri-checkbox-circle-fill text-green-500 text-sm"></i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        <!-- Statistiques -->
+                                        <div class="bg-primary-light/10 rounded-lg p-3 border border-primary-light/20">
+                                            <div class="text-xs font-bold text-primary-dark mb-1">Base de données</div>
+                                            <div class="text-xs text-gray-700">2,547 maladies</div>
+                                            <div class="text-xs text-gray-700">1,203 traitements</div>
+                                            <div class="text-xs text-gray-500 mt-1">Tout disponible hors ligne</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="order-1 md:order-2">
+                        <h2 class="text-4xl md:text-5xl font-bold text-primary-dark mb-6">Fonctionnement 100% Hors Ligne</h2>
+                        <p class="text-lg text-gray-700 mb-6">
+                            DoctAgri a été conçu pour fonctionner <strong class="text-primary-dark">sans connexion internet</strong>, répondant ainsi aux réalités des zones rurales togolaises.
+                        </p>
+                        <div class="space-y-4">
+                            <div class="flex items-start gap-4">
+                                <div class="flex-shrink-0 w-14 h-14 bg-green-100 rounded-xl flex items-center justify-center border-2 border-green-300">
+                                    <i class="ri-database-2-line text-2xl text-primary-light"></i>
+                                </div>
+                                <div>
+                                    <h3 class="font-bold text-gray-900 mb-1">Base de données embarquée</h3>
+                                    <p class="text-gray-700">Toutes les connaissances agricoles sont stockées directement dans l'application</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start gap-4">
+                                <div class="flex-shrink-0 w-14 h-14 bg-green-100 rounded-xl flex items-center justify-center border-2 border-green-300">
+                                    <i class="ri-smartphone-line text-2xl text-primary-light"></i>
+                                </div>
+                                <div>
+                                    <h3 class="font-bold text-gray-900 mb-1">Compatible smartphones bas de gamme</h3>
+                                    <p class="text-gray-700">Fonctionne sur des appareils Android à partir de 2 Go de RAM</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start gap-4">
+                                <div class="flex-shrink-0 w-14 h-14 bg-green-100 rounded-xl flex items-center justify-center border-2 border-green-300">
+                                    <i class="ri-battery-2-line text-2xl text-primary-light"></i>
+                                </div>
+                                <div>
+                                    <h3 class="font-bold text-gray-900 mb-1">Économie d'énergie</h3>
+                                    <p class="text-gray-700">Optimisé pour minimiser la consommation de batterie</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start gap-4">
+                                <div class="flex-shrink-0 w-14 h-14 bg-green-100 rounded-xl flex items-center justify-center border-2 border-green-300">
+                                    <i class="ri-refresh-line text-2xl text-primary-light"></i>
+                                </div>
+                                <div>
+                                    <h3 class="font-bold text-gray-900 mb-1">Mises à jour optionnelles</h3>
+                                    <p class="text-gray-700">Synchronisez les nouvelles données quand vous avez accès au Wi-Fi</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Audio Multilingue Tab Content -->
+    <div id="content-audio" class="tab-content hidden">
+        <section class="py-20 bg-white border-t border-gray-200">
+            <div class="container mx-auto px-4">
+                <div class="grid md:grid-cols-2 gap-12 items-center">
+                    <div>
+                        <h2 class="text-4xl md:text-5xl font-bold text-primary-dark mb-6">Conseils Audio Multilingues</h2>
+                        <p class="text-lg text-gray-700 mb-6">
+                            Pour garantir l'accessibilité à tous, DoctAgri propose des <strong class="text-primary-dark">explications audio</strong> en français et en langues locales, prioritairement l'éwé et le kabye.
+                        </p>
+                        <div class="space-y-4">
+                            <div class="flex items-start gap-4">
+                                <div class="flex-shrink-0 w-14 h-14 bg-green-100 rounded-xl flex items-center justify-center border-2 border-green-300">
+                                    <i class="ri-global-line text-2xl text-primary-light"></i>
+                                </div>
+                                <div>
+                                    <h3 class="font-bold text-gray-900 mb-1">Français,Kabye et Éwé</h3>
+                                    <p class="text-gray-700">Conseils disponibles en français,Kabye et en éwé pour toucher le maximum d'agriculteurs</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start gap-4">
+                                <div class="flex-shrink-0 w-14 h-14 bg-green-100 rounded-xl flex items-center justify-center border-2 border-green-300">
+                                    <i class="ri-user-voice-line text-2xl text-primary-light"></i>
+                                </div>
+                                <div>
+                                    <h3 class="font-bold text-gray-900 mb-1">Voix naturelles</h3>
+                                    <p class="text-gray-700">Enregistrements audio clairs et naturels pour une meilleure compréhension</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start gap-4">
+                                <div class="flex-shrink-0 w-14 h-14 bg-green-100 rounded-xl flex items-center justify-center border-2 border-green-300">
+                                    <i class="ri-book-open-line text-2xl text-primary-light"></i>
+                                </div>
+                                <div>
+                                    <h3 class="font-bold text-gray-900 mb-1">Accessible aux analphabètes</h3>
+                                    <p class="text-gray-700">Plus besoin de savoir lire pour bénéficier de conseils agricoles de qualité</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start gap-4">
+                                <div class="flex-shrink-0 w-14 h-14 bg-green-100 rounded-xl flex items-center justify-center border-2 border-green-300">
+                                    <i class="ri-repeat-2-line text-2xl text-primary-light"></i>
+                                </div>
+                                <div>
+                                    <h3 class="font-bold text-gray-900 mb-1">Réécoute illimitée</h3>
+                                    <p class="text-gray-700">Écoutez les conseils autant de fois que nécessaire</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="relative flex items-center justify-center">
+                        <!-- Mockup du smartphone montrant le mode audio multilingue - Taille réduite -->
+                        <div class="relative" style="max-width: 240px;">
+                            <div class="bg-gray-900 rounded-[3rem] p-2 shadow-2xl" style="width: 240px; height: 480px;">
+                                <div class="bg-white rounded-[2.5rem] overflow-hidden h-full flex flex-col">
+                                    <!-- Header -->
+                                    <div class="bg-primary-dark px-3 py-2 flex items-center justify-between">
+                                        <i class="ri-arrow-left-s-line text-white text-lg"></i>
+                                        <span class="text-white font-bold text-xs">Audio</span>
+                                        <i class="ri-volume-up-line text-white text-lg"></i>
+                                    </div>
+                                    <!-- Contenu de l'app audio -->
+                                    <div class="flex-1 bg-gray-50 p-4 overflow-y-auto">
+                                        <!-- Sélection de langue -->
+                                        <div class="mb-4">
+                                            <div class="text-xs font-bold text-gray-900 mb-2">Choisir la langue</div>
+                                            <div class="space-y-2">
+                                                <div class="bg-primary-light text-white rounded-lg p-3 flex items-center justify-between">
+                                                    <div class="flex items-center gap-2">
+                                                        <i class="ri-global-line text-sm"></i>
+                                                        <span class="text-xs font-semibold">Français</span>
+                                                    </div>
+                                                    <i class="ri-checkbox-circle-fill text-white text-sm"></i>
+                                                </div>
+                                                <div class="bg-white border-2 border-gray-200 rounded-lg p-3 flex items-center justify-between">
+                                                    <div class="flex items-center gap-2">
+                                                        <i class="ri-global-line text-primary-light text-sm"></i>
+                                                        <span class="text-xs font-semibold text-gray-900">Éwé</span>
+                                                    </div>
+                                                    <i class="ri-checkbox-circle-fill text-white text-sm"></i>
+                                                </div>
+                                                <div class="bg-white border-2 border-gray-200 rounded-lg p-3 flex items-center justify-between">
+                                                    <div class="flex items-center gap-2">
+                                                        <i class="ri-global-line text-primary-light text-sm"></i>
+                                                        <span class="text-xs font-semibold text-gray-900">Kabye</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        <!-- Lecteur audio -->
+                                        <div class="bg-white rounded-lg p-4 shadow-sm border border-gray-100 mb-3">
+                                            <div class="flex items-center gap-3 mb-3">
+                                                <div class="w-12 h-12 bg-primary-light/20 rounded-lg flex items-center justify-center">
+                                                    <i class="ri-headphone-line text-primary-light text-xl"></i>
+                                                </div>
+                                                <div class="flex-1">
+                                                    <div class="text-xs font-bold text-gray-900">Traitement Mildiou</div>
+                                                    <div class="text-xs text-gray-500">Conseil audio</div>
+                                                </div>
+                                            </div>
+                                            
+                                            <!-- Contrôles audio -->
+                                            <div class="flex items-center justify-center gap-4 mb-2">
+                                                <button class="w-8 h-8 bg-primary-light rounded-full flex items-center justify-center">
+                                                    <i class="ri-skip-back-line text-white text-sm"></i>
+                                                </button>
+                                                <button class="w-10 h-10 bg-primary-light rounded-full flex items-center justify-center">
+                                                    <i class="ri-pause-line text-white text-base"></i>
+                                                </button>
+                                                <button class="w-8 h-8 bg-primary-light rounded-full flex items-center justify-center">
+                                                    <i class="ri-skip-forward-line text-white text-sm"></i>
+                                                </button>
+                                            </div>
+                                            
+                                            <!-- Barre de progression -->
+                                            <div class="w-full bg-gray-200 rounded-full h-1.5 mb-1">
+                                                <div class="bg-primary-light h-1.5 rounded-full" style="width: 45%"></div>
+                                            </div>
+                                            <div class="flex justify-between text-xs text-gray-500">
+                                                <span>1:23</span>
+                                                <span>3:15</span>
+                                            </div>
+                                        </div>
+                                        
+                                        <!-- Options -->
+                                        <div class="space-y-2">
+                                            <div class="bg-white rounded-lg p-2 flex items-center justify-between border border-gray-100">
+                                                <div class="flex items-center gap-2">
+                                                    <i class="ri-repeat-line text-primary-light text-sm"></i>
+                                                    <span class="text-xs text-gray-700">Réécouter</span>
+                                                </div>
+                                                <i class="ri-checkbox-circle-fill text-primary-light text-sm"></i>
+                                            </div>
+                                            <div class="bg-white rounded-lg p-2 flex items-center justify-between border border-gray-100">
+                                                <div class="flex items-center gap-2">
+                                                    <i class="ri-speed-line text-primary-light text-sm"></i>
+                                                    <span class="text-xs text-gray-700">Vitesse: Normal</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Traitements Tab Content -->
+    <div id="content-traitements" class="tab-content hidden">
+        <section class="py-20 bg-beige-light border-t border-gray-200">
+            <div class="container mx-auto px-4">
+                <div class="grid md:grid-cols-2 gap-12 items-center">
+                    <div class="relative order-2 md:order-1 flex items-center justify-center">
+                        <!-- Mockup du smartphone montrant les recommandations de traitements - Taille réduite -->
+                        <div class="relative" style="max-width: 240px;">
+                            <div class="bg-gray-900 rounded-[3rem] p-2 shadow-2xl" style="width: 240px; height: 480px;">
+                                <div class="bg-white rounded-[2.5rem] overflow-hidden h-full flex flex-col">
+                                    <!-- Header -->
+                                    <div class="bg-primary-dark px-3 py-2 flex items-center justify-between">
+                                        <i class="ri-arrow-left-s-line text-white text-lg"></i>
+                                        <span class="text-white font-bold text-xs">Traitements</span>
+                                        <i class="ri-medicine-bottle-line text-white text-lg"></i>
+                                    </div>
+                                    <!-- Contenu de l'app traitements -->
+                                    <div class="flex-1 bg-gray-50 p-4 overflow-y-auto">
+                                        <!-- Maladie détectée -->
+                                        <div class="bg-red-50 border border-red-200 rounded-lg p-3 mb-3">
+                                            <div class="flex items-center gap-2 mb-1">
+                                                <i class="ri-alert-line text-red-600 text-sm"></i>
+                                                <span class="text-xs font-bold text-red-800">Mildiou détecté</span>
+                                            </div>
+                                            <div class="text-xs text-red-700">Tomate - Urgence: Élevée</div>
+                                        </div>
+                                        
+                                        <!-- Traitements recommandés -->
+                                        <div class="mb-3">
+                                            <div class="text-xs font-bold text-gray-900 mb-2">Traitements recommandés</div>
+                                            
+                                            <!-- Traitement biologique -->
+                                            <div class="bg-white rounded-lg p-3 shadow-sm border border-green-200 mb-2">
+                                                <div class="flex items-start gap-2 mb-2">
+                                                    <div class="w-8 h-8 bg-green-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                                                        <i class="ri-leaf-line text-primary-light text-sm"></i>
+                                                    </div>
+                                                    <div class="flex-1">
+                                                        <div class="text-xs font-bold text-gray-900">Biologique</div>
+                                                        <div class="text-xs text-gray-600">Bouillie bordelaise</div>
+                                                    </div>
+                                                    <span class="text-xs bg-green-100 text-primary-dark px-2 py-0.5 rounded-full font-semibold">Priorité</span>
+                                                </div>
+                                                <div class="text-xs text-gray-700 pl-10">2g/L d'eau, 3 applications</div>
+                                            </div>
+                                            
+                                            <!-- Traitement chimique -->
+                                            <div class="bg-white rounded-lg p-3 shadow-sm border border-orange-200">
+                                                <div class="flex items-start gap-2 mb-2">
+                                                    <div class="w-8 h-8 bg-orange-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                                                        <i class="ri-flask-line text-orange-600 text-sm"></i>
+                                                    </div>
+                                                    <div class="flex-1">
+                                                        <div class="text-xs font-bold text-gray-900">Chimique</div>
+                                                        <div class="text-xs text-gray-600">Fongicide systémique</div>
+                                                    </div>
+                                                </div>
+                                                <div class="text-xs text-gray-700 pl-10">Si biologique insuffisant</div>
+                                            </div>
+                                        </div>
+                                        
+                                        <!-- Calendrier -->
+                                        <div class="bg-white rounded-lg p-3 shadow-sm border border-gray-100 mb-3">
+                                            <div class="flex items-center gap-2 mb-2">
+                                                <i class="ri-calendar-check-line text-primary-light text-sm"></i>
+                                                <span class="text-xs font-bold text-gray-900">Calendrier</span>
+                                            </div>
+                                            <div class="space-y-1.5 text-xs">
+                                                <div class="flex justify-between">
+                                                    <span class="text-gray-700">1ère application:</span>
+                                                    <span class="font-semibold text-primary-dark">Aujourd'hui</span>
+                                                </div>
+                                                <div class="flex justify-between">
+                                                    <span class="text-gray-700">2ème:</span>
+                                                    <span class="font-semibold text-gray-900">+7 jours</span>
+                                                </div>
+                                                <div class="flex justify-between">
+                                                    <span class="text-gray-700">3ème:</span>
+                                                    <span class="font-semibold text-gray-900">+14 jours</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        <!-- Économie -->
+                                        <div class="bg-primary-light/10 rounded-lg p-2 border border-primary-light/20">
+                                            <div class="flex items-center gap-2 mb-1">
+                                                <i class="ri-money-dollar-circle-line text-primary-light text-sm"></i>
+                                                <span class="text-xs font-bold text-primary-dark">Économie estimée</span>
+                                            </div>
+                                            <div class="text-xs text-gray-700 pl-5">Réduction de 25% des coûts</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="order-1 md:order-2">
+                        <h2 class="text-4xl md:text-5xl font-bold text-primary-dark mb-6">Recommandations de Traitements</h2>
+                        <p class="text-lg text-gray-700 mb-6">
+                            Pour chaque pathologie détectée, DoctAgri propose des <strong class="text-primary-dark">solutions de traitement adaptées</strong>, biologiques et chimiques.
+                        </p>
+                        <div class="space-y-4">
+                            <div class="flex items-start gap-4">
+                                <div class="flex-shrink-0 w-14 h-14 bg-green-100 rounded-xl flex items-center justify-center border-2 border-green-300">
+                                    <i class="ri-leaf-line text-2xl text-primary-light"></i>
+                                </div>
+                                <div>
+                                    <h3 class="font-bold text-gray-900 mb-1">Traitements biologiques</h3>
+                                    <p class="text-gray-700">Solutions naturelles et respectueuses de l'environnement en priorité</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start gap-4">
+                                <div class="flex-shrink-0 w-14 h-14 bg-green-100 rounded-xl flex items-center justify-center border-2 border-green-300">
+                                    <i class="ri-flask-line text-2xl text-primary-light"></i>
+                                </div>
+                                <div>
+                                    <h3 class="font-bold text-gray-900 mb-1">Traitements chimiques ciblés</h3>
+                                    <p class="text-gray-700">Recommandations précises pour minimiser l'utilisation de pesticides</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start gap-4">
+                                <div class="flex-shrink-0 w-14 h-14 bg-green-100 rounded-xl flex items-center justify-center border-2 border-green-300">
+                                    <i class="ri-calendar-check-line text-2xl text-primary-light"></i>
+                                </div>
+                                <div>
+                                    <h3 class="font-bold text-gray-900 mb-1">Calendrier d'application</h3>
+                                    <p class="text-gray-700">Instructions détaillées sur quand et comment appliquer les traitements</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start gap-4">
+                                <div class="flex-shrink-0 w-14 h-14 bg-green-100 rounded-xl flex items-center justify-center border-2 border-green-300">
+                                    <i class="ri-seedling-line text-2xl text-primary-light"></i>
+                                </div>
+                                <div>
+                                    <h3 class="font-bold text-gray-900 mb-1">Pratiques culturales</h3>
+                                    <p class="text-gray-700">Conseils sur l'irrigation, la fertilisation et la prévention</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start gap-4">
+                                <div class="flex-shrink-0 w-14 h-14 bg-green-100 rounded-xl flex items-center justify-center border-2 border-green-300">
+                                    <i class="ri-money-dollar-circle-line text-2xl text-primary-light"></i>
+                                </div>
+                                <div>
+                                    <h3 class="font-bold text-gray-900 mb-1">Économie d'intrants</h3>
+                                    <p class="text-gray-700">Réduction de 20-30% des coûts grâce à des applications ciblées</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Fonctionnalités Supplémentaires -->
+    <section class="py-20 bg-white border-t border-gray-200">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl md:text-5xl font-bold text-primary-dark mb-4">Fonctionnalités Supplémentaires</h2>
+                <p class="text-xl text-gray-700">DoctAgri offre bien plus qu'un simple diagnostic</p>
+            </div>
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Rangée 1 -->
+                <div class="bg-white p-8 rounded-2xl shadow-lg border border-gray-100">
+                    <div class="w-16 h-16 bg-green-100 rounded-xl flex items-center justify-center mx-auto mb-4 border-2 border-green-300">
+                        <i class="ri-book-line text-3xl text-primary-light"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-primary-dark mb-2 text-center">Bibliothèque de connaissances</h3>
+                    <p class="text-gray-700 text-center">Accédez à une base complète d'informations sur les cultures, maladies et traitements</p>
+                </div>
+                <div class="bg-white p-8 rounded-2xl shadow-lg border border-gray-100">
+                    <div class="w-16 h-16 bg-green-100 rounded-xl flex items-center justify-center mx-auto mb-4 border-2 border-green-300">
+                        <i class="ri-calendar-check-line text-3xl text-primary-light"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-primary-dark mb-2 text-center">Calendrier cultural</h3>
+                    <p class="text-gray-700 text-center">Planifiez vos activités agricoles selon les saisons et les cultures</p>
+                </div>
+                <div class="bg-white p-8 rounded-2xl shadow-lg border border-gray-100">
+                    <div class="w-16 h-16 bg-green-100 rounded-xl flex items-center justify-center mx-auto mb-4 border-2 border-green-300">
+                        <i class="ri-cloud-windy-line text-3xl text-primary-light"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-primary-dark mb-2 text-center">Alertes météo</h3>
+                    <p class="text-gray-700 text-center">Recevez des notifications sur les conditions météorologiques importantes</p>
+                </div>
+                <!-- Rangée 2 -->
+                <div class="bg-white p-8 rounded-2xl shadow-lg border border-gray-100">
+                    <div class="w-16 h-16 bg-green-100 rounded-xl flex items-center justify-center mx-auto mb-4 border-2 border-green-300">
+                        <i class="ri-line-chart-line text-3xl text-primary-light"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-primary-dark mb-2 text-center">Suivi des cultures</h3>
+                    <p class="text-gray-700 text-center">Enregistrez et suivez l'évolution de vos parcelles au fil du temps</p>
+                </div>
+                <div class="bg-white p-8 rounded-2xl shadow-lg border border-gray-100">
+                    <div class="w-16 h-16 bg-green-100 rounded-xl flex items-center justify-center mx-auto mb-4 border-2 border-green-300">
+                        <i class="ri-group-line text-3xl text-primary-light"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-primary-dark mb-2 text-center">Communauté d'agriculteurs</h3>
+                    <p class="text-gray-700 text-center">Partagez vos expériences et apprenez des autres producteurs</p>
+                </div>
+                <div class="bg-white p-8 rounded-2xl shadow-lg border border-gray-100">
+                    <div class="w-16 h-16 bg-green-100 rounded-xl flex items-center justify-center mx-auto mb-4 border-2 border-green-300">
+                        <i class="ri-customer-service-2-line text-3xl text-primary-light"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-primary-dark mb-2 text-center">Support technique</h3>
+                    <p class="text-gray-700 text-center">Assistance disponible pour répondre à toutes vos questions</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-20 bg-gradient-to-br from-primary-dark via-primary-dark to-primary-light/20 relative overflow-hidden">
+        <div class="container mx-auto px-4 text-center relative z-10">
+            <h2 class="text-4xl md:text-5xl font-bold text-white mb-4">Prêt à Transformer Votre Agriculture ?</h2>
+            <p class="text-xl text-white/90 mb-8 max-w-2xl mx-auto">
+                Téléchargez DoctAgri maintenant et bénéficiez de toutes ces fonctionnalités gratuitement
+            </p>
+            <a href="download.html" class="inline-flex items-center gap-2 bg-primary-light text-white px-8 py-4 rounded-full text-lg font-semibold hover:bg-primary-500 transition shadow-lg">
+                <i class="ri-download-line text-xl"></i>
+                Télécharger gratuitement
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-primary-dark text-white py-16 relative overflow-hidden">
+        <!-- Watermark DOCTAGRI -->
+        <div class="absolute inset-0 flex items-center justify-center text-white/5 text-9xl font-black pointer-events-none" style="font-size: 12rem; letter-spacing: 0.5rem;">
+            DOCTAGRI
+        </div>
+        
+        <div class="container mx-auto px-4 relative z-10">
+            <div class="grid md:grid-cols-4 gap-8 mb-8">
+                <div>
+                    <div class="flex items-center gap-3 mb-6">
+                        <img src="../assets/doct.jpeg" alt="DoctAgri Logo" class="h-10 w-auto">
+                        <span class="text-2xl font-bold text-white">DoctAgri</span>
+                    </div>
+                    <p class="text-white/80 mb-4">Plateforme numérique inclusive pour l'assistance agricole intelligente au Togo.</p>
+                    <p class="text-white/60 text-sm">© 2026 DoctAgri. Tous droits réservés.</p>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-4 text-white uppercase">RESTEZ INFORMÉ</h4>
+                    <div class="flex gap-2 mb-2">
+                        <input type="email" placeholder="Votre email" class="flex-1 px-2 py-2 bg-transparent text-white placeholder-white/60 border-b border-white/30 focus:border-white focus:outline-none">
+                        <button class="bg-transparent px-2 py-2 hover:opacity-80 transition">
+                            <i class="ri-arrow-right-line text-xl text-white"></i>
+                        </button>
+                    </div>
+                    <a href="#" class="text-primary-light text-sm hover:text-white transition">En savoir plus sur notre politique de confidentialité</a>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-4 text-white uppercase">RESSOURCES</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-white/80 hover:text-white transition">Documentation</a></li>
+                        <li><a href="faq.html" class="text-white/80 hover:text-white transition">FAQ</a></li>
+                        <li><a href="#" class="text-white/80 hover:text-white transition">Support technique</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-4 text-white uppercase">NAVIGATION</h4>
+                    <ul class="space-y-2">
+                        <li><a href="about.html" class="text-white/80 hover:text-white transition">À propos</a></li>
+                        <li><a href="features.html" class="text-white/80 hover:text-white transition">Fonctionnalités</a></li>
+                        <li><a href="download.html" class="text-white/80 hover:text-white transition">Télécharger</a></li>
+                    </ul>
+                    <!-- Social Media Icons -->
+                    <div class="mt-6 flex items-center gap-4">
+                        <span class="text-primary-light text-sm">Visitez-nous sur les réseaux sociaux</span>
+                        <div class="flex gap-3">
+                            <a href="#" class="text-white hover:text-primary-light transition">
+                                <i class="ri-facebook-fill text-xl"></i>
+                            </a>
+                            <a href="#" class="text-white hover:text-primary-light transition">
+                                <i class="ri-twitter-x-fill text-xl"></i>
+                            </a>
+                            <a href="#" class="text-white hover:text-primary-light transition">
+                                <i class="ri-linkedin-fill text-xl"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating Talk with Us Button -->
+    <a href="contact.html" class="fixed bottom-6 right-6 bg-primary-light text-white px-4 py-3 rounded-lg shadow-lg hover:bg-primary-500 transition flex items-center gap-2 z-50">
+        <i class="ri-customer-service-2-line text-xl"></i>
+        <span class="font-medium">Talk with Us</span>
+    </a>
+
+    <script src="../js/main.js"></script>
+    <script>
+        // Rotation des images de feuilles malades dans le smartphone et animation des recommandations
+        const diagnosticLeafFeature = document.getElementById('diagnostic-leaf-feature');
+        const diagnosticRecommendations = document.getElementById('diagnostic-recommendations');
+        const maladeImages = [
+            '../assets/malade1.jpg',
+            '../assets/malade2.jpg',
+            '../assets/malade3.jpg',
+            '../assets/malade4.jpg'
+        ];
+        
+        // Liste de recommandations variées
+        const recommendationsList = [
+            [
+                { icon: 'ri-alert-line', color: 'text-red-500', text: 'Mildiou détecté' },
+                { icon: 'ri-alert-line', color: 'text-orange-500', text: 'Carence en azote' },
+                { icon: 'ri-checkbox-circle-line', color: 'text-green-500', text: 'Analyse terminée' }
+            ],
+            [
+                { icon: 'ri-alert-line', color: 'text-red-500', text: 'Rouille détectée' },
+                { icon: 'ri-alert-line', color: 'text-yellow-500', text: 'Manque d\'eau' },
+                { icon: 'ri-checkbox-circle-line', color: 'text-green-500', text: 'Analyse terminée' }
+            ],
+            [
+                { icon: 'ri-alert-line', color: 'text-red-500', text: 'Parasites détectés' },
+                { icon: 'ri-alert-line', color: 'text-orange-500', text: 'Carence en potassium' },
+                { icon: 'ri-checkbox-circle-line', color: 'text-green-500', text: 'Analyse terminée' }
+            ],
+            [
+                { icon: 'ri-alert-line', color: 'text-red-500', text: 'Maladie fongique' },
+                { icon: 'ri-alert-line', color: 'text-yellow-500', text: 'Exposition excessive' },
+                { icon: 'ri-checkbox-circle-line', color: 'text-green-500', text: 'Analyse terminée' }
+            ]
+        ];
+        
+        if (diagnosticLeafFeature) {
+            let currentMaladeIndex = 0;
+            let showRecommendations = false;
+            
+            // Fonction pour mettre à jour les recommandations
+            function updateRecommendations() {
+                if (diagnosticRecommendations) {
+                    const currentRecs = recommendationsList[currentMaladeIndex];
+                    const recsHTML = currentRecs.map(rec => 
+                        `<div class="flex items-center gap-2 text-xs text-gray-700">
+                            <i class="${rec.icon} ${rec.color}"></i>
+                            <span>${rec.text}</span>
+                        </div>`
+                    ).join('');
+                    diagnosticRecommendations.innerHTML = `
+                        <div class="text-xs font-bold text-primary-dark mb-2">Problèmes détectés :</div>
+                        <div class="space-y-1.5">${recsHTML}</div>
+                    `;
+                }
+            }
+            
+            // Afficher/masquer les recommandations de manière alternée
+            setInterval(function() {
+                if (diagnosticRecommendations) {
+                    showRecommendations = !showRecommendations;
+                    if (showRecommendations) {
+                        diagnosticRecommendations.style.opacity = '1';
+                        diagnosticRecommendations.style.transform = 'translate(-50%, -50%) scale(1)';
+                    } else {
+                        diagnosticRecommendations.style.opacity = '0';
+                        diagnosticRecommendations.style.transform = 'translate(-50%, -50%) scale(0.95)';
+                    }
+                }
+            }, 2000);
+            
+            // Changer l'image et les recommandations
+            setInterval(function() {
+                currentMaladeIndex = (currentMaladeIndex + 1) % maladeImages.length;
+                diagnosticLeafFeature.src = maladeImages[currentMaladeIndex];
+                updateRecommendations();
+            }, 4000);
+            
+            // Initialiser les recommandations
+            updateRecommendations();
+            if (diagnosticRecommendations) {
+                diagnosticRecommendations.style.transition = 'all 0.3s ease-in-out';
+            }
+        }
+        
+        // Gestion des images pour les autres onglets
+        const offlineFarmerImage = document.getElementById('offline-farmer-image');
+        if (offlineFarmerImage) {
+            offlineFarmerImage.onerror = function() {
+                this.src = '../assets/cul1.jpg';
+            };
+        }
+        
+        const audioFarmerImage = document.getElementById('audio-farmer-image');
+        if (audioFarmerImage) {
+            audioFarmerImage.onerror = function() {
+                this.src = '../assets/cul2.jpg';
+            };
+        }
+        
+        const treatmentsImage = document.getElementById('treatments-image');
+        if (treatmentsImage) {
+            treatmentsImage.onerror = function() {
+                // Utiliser une image de secours si l'image ne charge pas
+                this.src = '../assets/cul3.jpg';
+            };
+        }
+        
+        // Fonction pour changer d'onglet
+        function showTab(tabName) {
+            // Hide all tab contents
+            document.querySelectorAll('.tab-content').forEach(content => {
+                content.classList.add('hidden');
+            });
+            
+            // Remove active class from all tabs
+            document.querySelectorAll('.feature-tab').forEach(tab => {
+                tab.classList.remove('active', 'bg-primary-light', 'text-white');
+                tab.classList.add('bg-gray-200', 'text-gray-700');
+            });
+            
+            // Show selected tab content
+            document.getElementById('content-' + tabName).classList.remove('hidden');
+            
+            // Add active class to selected tab
+            const activeTab = document.getElementById('tab-' + tabName);
+            activeTab.classList.add('active', 'bg-primary-light', 'text-white');
+            activeTab.classList.remove('bg-gray-200', 'text-gray-700');
+        }
+    </script>
+</body>
+</html>
+
+
+
+
+
