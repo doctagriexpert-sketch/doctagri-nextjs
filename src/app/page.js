@@ -130,7 +130,7 @@ export default function Home() {
             <Link href="/" data-i18n-key="accueil" className="text-white hover:text-primary-300 font-medium">Accueil</Link>
             <Link href="/about" data-i18n-key="apropos" className="text-white hover:text-primary-300 font-medium">À propos</Link>
             <Link href="/features" data-i18n-key="fonctionnalites" className="text-white hover:text-primary-300 font-medium">Fonctionnalités</Link>
-            <a href="https://github.com/doctagriexpert-sketch/doctagri-nextjs/releases/download/v1.0.0/doctagri.apk" target="_blank" rel="noopener" data-i18n-key="telecharger" className="text-white hover:text-primary-300 font-medium">Télécharger</a>
+            <Link href="/download" data-i18n-key="telecharger" className="text-white hover:text-primary-300 font-medium">Télécharger</Link>
             <Link href="/faq" data-i18n-key="faq" className="text-white hover:text-primary-300 font-medium">FAQ</Link>
             <button id="translate-btn" className="text-white hover:text-primary-300 font-medium flex items-center gap-2">
               <i className="ri-global-line"></i> EN
@@ -148,7 +148,7 @@ export default function Home() {
             <Link href="/" data-i18n-key="accueil" className="block text-white font-medium">Accueil</Link>
             <Link href="/about" data-i18n-key="apropos" className="block text-white font-medium">À propos</Link>
             <Link href="/features" data-i18n-key="fonctionnalites" className="block text-white font-medium">Fonctionnalités</Link>
-            <a href="https://github.com/doctagriexpert-sketch/doctagri-nextjs/releases/download/v1.0.0/doctagri.apk" target="_blank" rel="noopener" data-i18n-key="telecharger" className="block text-white font-medium">Télécharger</a>
+            <Link href="/download" data-i18n-key="telecharger" className="block text-white font-medium">Télécharger</Link>
             <Link href="/faq" data-i18n-key="faq" className="block text-white font-medium">FAQ</Link>
             <button id="translate-btn-mobile" className="block text-white font-medium flex items-center gap-2 w-full text-left">
               <i className="ri-global-line"></i> EN
@@ -170,9 +170,9 @@ export default function Home() {
               DoctAgri diagnostique instantanément les maladies de vos plantes et vous guide avec des conseils personnalisés en français et en ewe, même sans connexion internet
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
-              <a href="https://github.com/doctagriexpert-sketch/doctagri-nextjs/releases/download/v1.0.0/doctagri.apk" target="_blank" rel="noopener" className="bg-primary-light text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-primary-500 transition flex items-center justify-center gap-2 shadow-lg">
+              <Link href="/download" className="bg-primary-light text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-primary-500 transition flex items-center justify-center gap-2 shadow-lg">
                 <i className="ri-download-cloud-line text-xl"></i><span data-i18n-key="telechargerGratuitement">Télécharger Gratuitement</span>
-              </a>
+              </Link>
               <Link href="/features" className="bg-white text-primary-dark border-2 border-gray-300 px-8 py-4 rounded-lg text-lg font-semibold hover:bg-gray-50 transition flex items-center justify-center gap-2 shadow-lg">
                 <i className="ri-play-circle-line text-xl"></i><span data-i18n-key="decouvrirFonctionnalites">Découvrir les Fonctionnalités</span>
               </Link>
