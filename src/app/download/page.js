@@ -86,8 +86,10 @@ export default function Download() {
                   Google Play
                 </a>
                 <a
-                  href="/doctagri.apk"
-                  download="doctagri.apk"
+                
+                  href="https://github.com/doctagriexpert-sketch/doctagri-nextjs/releases/download/v1.0.0/doctagri.apk"
+                  target="_blank"
+                  rel="noopener"
                   className="bg-primary-dark border-2 border-white text-white px-8 py-4 rounded-full text-lg font-semibold hover:bg-primary-700 transition flex items-center justify-center gap-2 shadow-lg"
                 >
                   <i className="ri-download-line text-xl"></i>
@@ -243,8 +245,9 @@ export default function Download() {
                 ))}
               </div>
               <a
-                href="/doctagri.apk"
-                download="doctagri.apk"
+                href="https://github.com/doctagriexpert-sketch/doctagri-nextjs/releases/download/v1.0.0/doctagri.apk"
+                target="_blank"
+                rel="noopener"
                 className="mt-6 w-full bg-primary-dark text-white px-6 py-3 rounded-full font-semibold hover:bg-primary-700 transition flex items-center justify-center gap-2"
               >
                 <i className="ri-download-line text-xl"></i>
