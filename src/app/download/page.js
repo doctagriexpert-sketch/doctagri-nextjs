@@ -1,9 +1,16 @@
 'use client'
 
 import Link from 'next/link'
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 
 export default function Download() {
+  const [downloadingId, setDownloadingId] = useState(null)
+
+  const handleDownloadClick = (id) => {
+    setDownloadingId(id)
+    setTimeout(() => setDownloadingId(null), 3000)
+  }
+
   useEffect(() => {
     // ── Mobile menu ──────────────────────────────────────────────
     const mobileMenuBtn = document.getElementById('mobile-menu-btn')
@@ -90,10 +97,20 @@ export default function Download() {
                   href="https://github.com/doctagriexpert-sketch/doctagri-nextjs/releases/download/v1.0.0/doctagri.apk"
                   target="_blank"
                   rel="noopener"
+                  onClick={() => handleDownloadClick('hero-apk')}
                   className="bg-primary-dark border-2 border-white text-white px-8 py-4 rounded-full text-lg font-semibold hover:bg-primary-700 transition flex items-center justify-center gap-2 shadow-lg"
                 >
-                  <i className="ri-download-line text-xl"></i>
-                  APK Direct
+                  {downloadingId === 'hero-apk' ? (
+                    <>
+                      <i className="ri-loader-4-line text-xl animate-spin"></i>
+                      Téléchargement en cours...
+                    </>
+                  ) : (
+                    <>
+                      <i className="ri-download-line text-xl"></i>
+                      APK Direct
+                    </>
+                  )}
                 </a>
               <div className="text-white/80 text-sm">
                 Version 1.0.0 • Compatible Android 8.0 et supérieur • 45 MB
@@ -248,10 +265,20 @@ export default function Download() {
                 href="https://github.com/doctagriexpert-sketch/doctagri-nextjs/releases/download/v1.0.0/doctagri.apk"
                 target="_blank"
                 rel="noopener"
+                onClick={() => handleDownloadClick('guide-apk')}
                 className="mt-6 w-full bg-primary-dark text-white px-6 py-3 rounded-full font-semibold hover:bg-primary-700 transition flex items-center justify-center gap-2"
               >
-                <i className="ri-download-line text-xl"></i>
-                Télécharger l'APK (45 MB)
+                {downloadingId === 'guide-apk' ? (
+                  <>
+                    <i className="ri-loader-4-line text-xl animate-spin"></i>
+                    Téléchargement en cours...
+                  </>
+                ) : (
+                  <>
+                    <i className="ri-download-line text-xl"></i>
+                    Télécharger l'APK (45 MB)
+                  </>
+                )}
               </a>
             </div>
           </div>
