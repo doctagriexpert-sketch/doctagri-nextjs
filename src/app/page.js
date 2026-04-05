@@ -210,29 +210,29 @@ export default function Home() {
         <div className="container mx-auto px-4">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div>
-              <span className="inline-block bg-beige-light text-primary-dark px-4 py-2 rounded-full text-xs font-semibold uppercase tracking-wide mb-4">DIAGNOSTIC INTELLIGENT</span>
-              <h2 className="text-4xl md:text-5xl font-bold text-primary-dark mb-6">Un Diagnostic Precis en Quelques Secondes</h2>
-              <p className="text-lg text-primary-600 mb-8">
+              <span data-i18n-key="diagnosticBadge" className="inline-block bg-beige-light text-primary-dark px-4 py-2 rounded-full text-xs font-semibold uppercase tracking-wide mb-4">DIAGNOSTIC INTELLIGENT</span>
+              <h2 data-i18n-key="diagnosticTitre" className="text-4xl md:text-5xl font-bold text-primary-dark mb-6">Un Diagnostic Precis en Quelques Secondes</h2>
+              <p data-i18n-key="diagnosticDesc" className="text-lg text-primary-600 mb-8">
                 Grace a l'intelligence artificielle embarquee, <span className="text-primary-light font-semibold">DoctAgri</span> analyse instantanement les photos de vos plantes avec une precision superieure a 95%.
               </p>
               <div className="space-y-6">
                 {[
-                  { icon: 'ri-camera-line', title: 'Prenez une photo', desc: 'Photographiez simplement la partie malade de votre plante' },
-                  { icon: 'ri-flashlight-line', title: 'Analyse instantanee', desc: "L'IA identifie le probleme en moins de 3 secondes" },
-                  { icon: 'ri-shield-check-line', title: 'Recevez des conseils', desc: 'Obtenez des recommandations de traitement personnalisees' },
+                  { icon: 'ri-camera-line', title: 'Prenez une photo', desc: 'Photographiez simplement la partie malade de votre plante', titleKey: 'diagnosticPhotoTitle', descKey: 'diagnosticPhotoDesc' },
+                  { icon: 'ri-flashlight-line', title: 'Analyse instantanee', desc: "L'IA identifie le probleme en moins de 3 secondes", titleKey: 'diagnosticAnalyseTitle', descKey: 'diagnosticAnalyseDesc' },
+                  { icon: 'ri-shield-check-line', title: 'Recevez des conseils', desc: 'Obtenez des recommandations de traitement personnalisees', titleKey: 'diagnosticConseilsTitle', descKey: 'diagnosticConseilsDesc' },
                 ].map((s, i) => (
                   <div key={i} className="flex items-start gap-4">
                     <div className="flex-shrink-0 w-14 h-14 bg-beige-light rounded-xl flex items-center justify-center">
                       <i className={`${s.icon} text-2xl text-primary-dark`}></i>
                     </div>
                     <div>
-                      <h3 className="font-bold text-primary-dark mb-1">{s.title}</h3>
-                      <p className="text-primary-600">{s.desc}</p>
+                      <h3 data-i18n-key={s.titleKey} className="font-bold text-primary-dark mb-1">{s.title}</h3>
+                      <p data-i18n-key={s.descKey} className="text-primary-600">{s.desc}</p>
                     </div>
                   </div>
                 ))}
               </div>
-              <Link href="/features" className="inline-flex items-center gap-2 mt-8 text-primary-light font-semibold hover:text-primary-500 transition">
+              <Link href="/features" data-i18n-key="enSavoirPlus" className="inline-flex items-center gap-2 mt-8 text-primary-light font-semibold hover:text-primary-500 transition">
                 En savoir plus <i className="ri-arrow-right-line"></i>
               </Link>
             </div>
@@ -294,30 +294,30 @@ export default function Home() {
       <section className="py-20 bg-beige-light/50 backdrop-blur-sm relative">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
-            <span className="inline-block bg-primary-100 text-primary-dark px-4 py-2 rounded-full text-sm font-semibold mb-4">FONCTIONNALITES</span>
-            <h2 className="text-4xl md:text-5xl font-bold text-primary-dark mb-4">Une Solution Complete pour Vos Cultures</h2>
-            <p className="text-xl text-primary-600">DoctAgri combine technologie de pointe et accessibilite pour tous les agriculteurs togolais</p>
+            <span data-i18n-key="featuresBadge" className="inline-block bg-primary-100 text-primary-dark px-4 py-2 rounded-full text-sm font-semibold mb-4">FONCTIONNALITES</span>
+            <h2 data-i18n-key="featuresTitle" className="text-4xl md:text-5xl font-bold text-primary-dark mb-4">Une Solution Complete pour Vos Cultures</h2>
+            <p data-i18n-key="featuresDesc" className="text-xl text-primary-600">DoctAgri combine technologie de pointe et accessibilite pour tous les agriculteurs togolais</p>
           </div>
           <div className="grid md:grid-cols-3 gap-8 mb-12">
             {[
-              { icon: 'ri-wifi-off-line', title: 'Fonctionnement Hors Ligne', desc: "Utilisez DoctAgri partout, meme sans connexion internet." },
-              { icon: 'ri-brain-line', title: 'Intelligence Artificielle', desc: 'Detection precise des maladies, carences et parasites.' },
-              { icon: 'ri-volume-up-line', title: 'Audio Multilingue', desc: 'Conseils en francais, kabye et ewe pour tous.' },
-              { icon: 'ri-plant-line', title: 'Cultures Prioritaires', desc: 'Tomate, mais, piment et manioc couverts.' },
-              { icon: 'ri-medicine-bottle-line', title: 'Traitements Adaptes', desc: 'Recommandations biologiques et chimiques ciblees.' },
-              { icon: 'ri-leaf-line', title: 'Approche Ecologique', desc: 'Reduction de 20-30% des pesticides grace aux diagnostics precis.' },
+              { icon: 'ri-wifi-off-line', titleKey: 'featureOfflineTitle', descKey: 'featureOfflineDesc' },
+              { icon: 'ri-brain-line', titleKey: 'featureAITitle', descKey: 'featureAIDesc' },
+              { icon: 'ri-volume-up-line', titleKey: 'featureAudioTitle', descKey: 'featureAudioDesc' },
+              { icon: 'ri-plant-line', titleKey: 'featureCropsTitle', descKey: 'featureCropsDesc' },
+              { icon: 'ri-medicine-bottle-line', titleKey: 'featureTreatmentTitle', descKey: 'featureTreatmentDesc' },
+              { icon: 'ri-leaf-line', titleKey: 'featureEcoTitle', descKey: 'featureEcoDesc' },
             ].map((c, i) => (
               <div key={i} className="bg-white p-8 rounded-2xl shadow-lg border border-gray-100 hover:shadow-xl transition-shadow">
                 <div className="w-16 h-16 bg-primary-50 rounded-xl border-2 border-primary-light flex items-center justify-center mx-auto mb-4">
                   <i className={`${c.icon} text-3xl text-primary-light`}></i>
                 </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-3 text-center">{c.title}</h3>
-                <p className="text-gray-900 text-center">{c.desc}</p>
+                <h3 data-i18n-key={c.titleKey} className="text-xl font-bold text-gray-900 mb-3 text-center">{c.titleKey}</h3>
+                <p data-i18n-key={c.descKey} className="text-gray-900 text-center">{c.descKey}</p>
               </div>
             ))}
           </div>
           <div className="text-center">
-            <Link href="/features" className="inline-flex items-center gap-2 bg-primary-light text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-primary-500 transition shadow-lg">
+            <Link href="/features" data-i18n-key="decouvrirToutesLesFonctionnalites" className="inline-flex items-center gap-2 bg-primary-light text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-primary-500 transition shadow-lg">
               Decouvrir toutes les fonctionnalites <i className="ri-arrow-right-line"></i>
             </Link>
           </div>
