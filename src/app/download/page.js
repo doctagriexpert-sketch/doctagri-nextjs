@@ -58,7 +58,6 @@ export default function Download() {
           </div>
         </div>
       </nav>
-      <div id="google_translate_element" style={{ position: 'absolute', top: 0, left: 0, opacity: 0, pointerEvents: 'none' }}></div>
 
       {/* ── Banner ── */}
       <div className="bg-primary-light/10 border-b border-primary-light/20 py-3">
@@ -79,7 +78,6 @@ export default function Download() {
               <p className="text-xl text-white/90 mb-8">
                 Commencez dès maintenant à diagnostiquer vos cultures avec l'intelligence artificielle. Application 100% gratuite et hors ligne.
               </p>
-              <div className="flex flex-col sm:flex-row gap-4 mb-6">
                 <a
                   href="#"
                   className="bg-white text-primary-dark px-8 py-4 rounded-full text-lg font-semibold hover:bg-gray-100 transition flex items-center justify-center gap-2 shadow-lg"
@@ -88,13 +86,13 @@ export default function Download() {
                   Google Play
                 </a>
                 <a
-                  href="#"
+                  href="/doctagri.apk"
+                  download="doctagri.apk"
                   className="bg-primary-dark border-2 border-white text-white px-8 py-4 rounded-full text-lg font-semibold hover:bg-primary-700 transition flex items-center justify-center gap-2 shadow-lg"
                 >
                   <i className="ri-download-line text-xl"></i>
                   APK Direct
                 </a>
-              </div>
               <div className="text-white/80 text-sm">
                 Version 1.0.0 • Compatible Android 8.0 et supérieur • 45 MB
               </div>
@@ -245,7 +243,8 @@ export default function Download() {
                 ))}
               </div>
               <a
-                href="#"
+                href="/doctagri.apk"
+                download="doctagri.apk"
                 className="mt-6 w-full bg-primary-dark text-white px-6 py-3 rounded-full font-semibold hover:bg-primary-700 transition flex items-center justify-center gap-2"
               >
                 <i className="ri-download-line text-xl"></i>

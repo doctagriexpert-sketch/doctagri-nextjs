@@ -152,8 +152,8 @@ export default function Documentation() {
         <>
           <p className="text-gray-700 leading-relaxed mb-4">
             Pour toute question technique, signalement de bug ou suggestion d'amélioration, vous pouvez nous contacter via la page Contact ou par email à{' '}
-            <a href="mailto:contact@doctagri.tg" className="text-primary-light font-semibold hover:underline">
-              contact@doctagri.tg
+            <a href="mailto:doctagri.expert@gmail.com" className="text-primary-light font-semibold hover:underline">
+              doctagri.expert@gmail.com
             </a>.
           </p>
           <Link
@@ -211,7 +211,6 @@ export default function Documentation() {
           </div>
         </div>
       </nav>
-      <div id="google_translate_element" style={{ position: 'absolute', top: 0, left: 0, opacity: 0, pointerEvents: 'none' }}></div>
 
       {/* ── Hero ── */}
       <section className="py-16 bg-gradient-to-b from-primary-light/20 to-white border-b border-gray-200">

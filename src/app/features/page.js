@@ -100,7 +100,6 @@ export default function Features() {
           </div>
         </div>
       </nav>
-      <div id="google_translate_element" style={{position:'absolute',top:0,left:0,opacity:0,pointerEvents:'none'}}></div>
 
       {/* Hero */}
       <section className="py-20 bg-gradient-to-br from-primary-dark via-primary-dark to-primary-light/20 relative overflow-hidden">

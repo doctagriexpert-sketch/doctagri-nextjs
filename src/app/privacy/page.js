@@ -21,8 +21,8 @@ export default function Privacy() {
       content: (
         <p className="text-gray-700 leading-relaxed">
           Le responsable du traitement des données personnelles est <strong>DoctAgri</strong>. Pour toute question relative à la présente politique ou à l'exercice de vos droits, vous pouvez nous contacter à l'adresse{' '}
-          <a href="mailto:contact@doctagri.tg" className="text-primary-light font-semibold hover:underline">
-            contact@doctagri.tg
+          <a href="mailto:doctagri.expert@gmail.com" className="text-primary-light font-semibold hover:underline">
+            doctagri.expert@gmail.com
           </a>{' '}
           ou via la page{' '}
           <Link href="/contact" className="text-primary-light font-semibold hover:underline">
@@ -101,8 +101,8 @@ export default function Privacy() {
           </ul>
           <p className="text-gray-700 leading-relaxed">
             Pour exercer ces droits, contactez-nous à{' '}
-            <a href="mailto:contact@doctagri.tg" className="text-primary-light font-semibold hover:underline">
-              contact@doctagri.tg
+            <a href="mailto:doctagri.expert@gmail.com" className="text-primary-light font-semibold hover:underline">
+              doctagri.expert@gmail.com
             </a>. Vous avez également le droit d'introduire une réclamation auprès de l'autorité de contrôle compétente (CNIL pour la France, ou autorité équivalente selon votre pays de résidence).
           </p>
         </>
@@ -137,8 +137,8 @@ export default function Privacy() {
       content: (
         <p className="text-gray-700 leading-relaxed">
           Pour toute question relative à la protection de vos données personnelles :{' '}
-          <a href="mailto:contact@doctagri.tg" className="text-primary-light font-semibold hover:underline">
-            contact@doctagri.tg
+          <a href="mailto:doctagri.expert@gmail.com" className="text-primary-light font-semibold hover:underline">
+            doctagri.expert@gmail.com
           </a>. Vous pouvez également utiliser notre{' '}
           <Link href="/contact" className="text-primary-light font-semibold hover:underline">
             formulaire de contact
@@ -191,7 +191,6 @@ export default function Privacy() {
           </div>
         </div>
       </nav>
-      <div id="google_translate_element" style={{ position: 'absolute', top: 0, left: 0, opacity: 0, pointerEvents: 'none' }}></div>
 
       {/* ── Contenu principal ── */}
       <main className="py-12">

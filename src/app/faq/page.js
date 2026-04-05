@@ -195,7 +195,6 @@ export default function FAQ() {
           </div>
         </div>
       </nav>
-      <div id="google_translate_element" style={{ position: 'absolute', top: 0, left: 0, opacity: 0, pointerEvents: 'none' }}></div>
 
       {/* ── Hero ── */}
       <section className="py-20 bg-gradient-to-b from-primary-light via-primary-light/50 to-white">

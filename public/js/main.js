@@ -1,5 +1,5 @@
-// Mobile menu toggle
-document.addEventListener('DOMContentLoaded', function() {
+// Initialize when script loads
+function initializeApp() {
     const mobileMenuBtn = document.getElementById('mobile-menu-btn');
     const mobileMenu = document.getElementById('mobile-menu');
     
@@ -12,16 +12,72 @@ document.addEventListener('DOMContentLoaded', function() {
     // Translate button
     const translateBtn = document.getElementById('translate-btn');
     const translateBtnMobile = document.getElementById('translate-btn-mobile');
-    let currentLang = 'fr';
-    
+    let currentLang = localStorage.getItem('preferredLanguage') || 'fr';
+
+    const translations = {
+        fr: {
+            accueil: 'Accueil',
+            apropos: 'À propos',
+            fonctionnalites: 'Fonctionnalités',
+            telecharger: 'Télécharger',
+            faq: 'FAQ',
+            contact: 'Contact',
+            telechargerGratuitement: 'Télécharger Gratuitement',
+            decouvrirFonctionnalites: 'Découvrir les Fonctionnalités',
+            heroesTitre: "Protégez Vos Cultures avec l'Intelligence Artificielle",
+            heroesDescription: "DoctAgri diagnostique instantanément les maladies de vos plantes et vous guide avec des conseils personnalisés en français et en ewe, même sans connexion internet.",
+            miseAJour: 'Mises à jour automatiques via Wi-Fi (optionnel)',
+            horsLigneTitre: '100% Hors Ligne',
+            horsLigneDesc: 'Fonctionne sans connexion internet',
+            iaEmbarqueeTitre: 'IA Embarquée',
+            iaEmbarqueeDesc: 'Diagnostic instantané par photo',
+            audioMultilingueTitre: 'Audio Multilingue',
+            audioMultilingueDesc: 'Conseils en français, ewe et kabye',
+        },
+        en: {
+            accueil: 'Home',
+            apropos: 'About',
+            fonctionnalites: 'Features',
+            telecharger: 'Download',
+            faq: 'FAQ',
+            contact: 'Contact',
+            telechargerGratuitement: 'Download for Free',
+            decouvrirFonctionnalites: 'Discover Features',
+            heroesTitre: 'Protect Your Crops with Artificial Intelligence',
+            heroesDescription: 'DoctAgri instantly diagnoses plant diseases and guides you with personalized advice in French and Ewe, even without internet connection.',
+            miseAJour: 'Automatic updates via Wi-Fi (optional)',
+            horsLigneTitre: '100% Offline',
+            horsLigneDesc: 'Works without internet connection',
+            iaEmbarqueeTitre: 'Embedded AI',
+            iaEmbarqueeDesc: 'Instant diagnosis by photo',
+            audioMultilingueTitre: 'Multilingual Audio',
+            audioMultilingueDesc: 'Advice in French, Ewe and Kabye',
+        },
+    };
+
+    function applyTranslations(lang) {
+        document.documentElement.lang = lang;
+        document.querySelectorAll('[data-i18n-key]').forEach(el => {
+            const key = el.getAttribute('data-i18n-key');
+            if (key && translations[lang] && translations[lang][key]) {
+                el.textContent = translations[lang][key];
+            }
+        });
+    }
+
+    function setLanguage(lang) {
+        currentLang = lang;
+        localStorage.setItem('preferredLanguage', lang);
+        applyTranslations(lang);
+        updateButtonText();
+        return true;
+    }
+
     function toggleLanguage() {
         const targetLang = currentLang === 'fr' ? 'en' : 'fr';
-        const url = 'https://translate.google.com/translate?sl=' + currentLang + '&tl=' + targetLang + '&u=' + encodeURIComponent(window.location.href);
-        window.open(url, '_blank');
-        currentLang = targetLang;
-        updateButtonText();
+        setLanguage(targetLang);
     }
-    
+
     function updateButtonText() {
         const langText = currentLang === 'fr' ? 'EN' : 'FR';
         const icon = '<i class="ri-global-line"></i>';
@@ -39,6 +95,14 @@ document.addEventListener('DOMContentLoaded', function() {
     
     if (translateBtnMobile) {
         translateBtnMobile.addEventListener('click', toggleLanguage);
+    }
+
+    // Set initial button state
+    updateButtonText();
+
+    // Apply saved language preference on page load
+    if (currentLang === 'en') {
+        applyTranslations('en');
     }
     
     // Chat widget functionality
@@ -140,8 +204,12 @@ document.addEventListener('DOMContentLoaded', function() {
     // Smooth scroll for anchor links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
+            const href = this.getAttribute('href');
+            if (!href || href === '#') {
+                return;
+            }
             e.preventDefault();
-            const target = document.querySelector(this.getAttribute('href'));
+            const target = document.querySelector(href);
             if (target) {
                 target.scrollIntoView({
                     behavior: 'smooth',
@@ -200,6 +268,14 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     }
-});
+}
+
+// Execute when script loads or on DOMContentLoaded
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initializeApp);
+} else {
+    // DOM is already ready
+    initializeApp();
+}
 
 

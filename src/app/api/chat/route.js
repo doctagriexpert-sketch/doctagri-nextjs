@@ -1,5 +1,5 @@
 const WHATSAPP_NUMBER = '22891774563' 
-const CONTACT_EMAIL = 'contact@doctagri.tg'
+const CONTACT_EMAIL = 'doctagri.expert@gmail.com'
 
 const FAQ = [
   {
@@ -49,7 +49,7 @@ const FAQ = [
   {
     keywords: ['contact', 'aide', 'support', 'probleme', 'question', 'assistance'],
     question: 'Comment contacter le support ?',
-    answer: "Vous pouvez nous contacter via notre formulaire de contact, par email à contact@doctagri.tg, ou sur WhatsApp. Notre équipe répond généralement dans les 24h.",
+    answer: "Vous pouvez nous contacter via notre formulaire de contact, par email à doctagri.expert@gmail.com, ou sur WhatsApp. Notre équipe répond généralement dans les 24h.",
     link: '/contact',
     linkText: 'Nous contacter',
   },
@@ -128,3 +128,4 @@ export async function POST(request) {
     return Response.json({ error: 'Une erreur est survenue.' }, { status: 500 })
   }
 }
+

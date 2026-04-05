@@ -127,15 +127,15 @@ export default function Home() {
             <span className="text-xl font-bold text-white">DoctAgri</span>
           </Link>
           <div className="hidden md:flex items-center space-x-6">
-            <Link href="/" className="text-white hover:text-primary-300 font-medium">Accueil</Link>
-            <Link href="/about" className="text-white hover:text-primary-300 font-medium">A propos</Link>
-            <Link href="/features" className="text-white hover:text-primary-300 font-medium">Fonctionnalites</Link>
-            <Link href="/download" className="text-white hover:text-primary-300 font-medium">Telecharger</Link>
-            <Link href="/faq" className="text-white hover:text-primary-300 font-medium">FAQ</Link>
+            <Link href="/" data-i18n-key="accueil" className="text-white hover:text-primary-300 font-medium">Accueil</Link>
+            <Link href="/about" data-i18n-key="apropos" className="text-white hover:text-primary-300 font-medium">À propos</Link>
+            <Link href="/features" data-i18n-key="fonctionnalites" className="text-white hover:text-primary-300 font-medium">Fonctionnalités</Link>
+            <a href="/doctagri.apk" download="doctagri.apk" data-i18n-key="telecharger" className="text-white hover:text-primary-300 font-medium">Télécharger</a>
+            <Link href="/faq" data-i18n-key="faq" className="text-white hover:text-primary-300 font-medium">FAQ</Link>
             <button id="translate-btn" className="text-white hover:text-primary-300 font-medium flex items-center gap-2">
               <i className="ri-global-line"></i> EN
             </button>
-            <Link href="/contact" className="bg-primary-light text-white px-4 py-2 rounded-lg hover:bg-primary-500 transition">Contact</Link>
+            <Link href="/contact" data-i18n-key="contact" className="bg-primary-light text-white px-4 py-2 rounded-lg hover:bg-primary-500 transition">Contact</Link>
           </div>
           <button className="md:hidden text-white" id="mobile-menu-btn">
             <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -145,35 +145,36 @@ export default function Home() {
         </div>
         <div className="hidden md:hidden bg-primary-900/95 border-t border-primary-700" id="mobile-menu">
           <div className="container mx-auto px-4 py-2 space-y-2">
-            <Link href="/" className="block text-white font-medium">Accueil</Link>
-            <Link href="/about" className="block text-white font-medium">A propos</Link>
-            <Link href="/features" className="block text-white font-medium">Fonctionnalites</Link>
-            <Link href="/download" className="block text-white font-medium">Telecharger</Link>
-            <Link href="/faq" className="block text-white font-medium">FAQ</Link>
-            <Link href="/contact" className="block bg-primary-500 text-white px-4 py-2 rounded-lg text-center">Contact</Link>
+            <Link href="/" data-i18n-key="accueil" className="block text-white font-medium">Accueil</Link>
+            <Link href="/about" data-i18n-key="apropos" className="block text-white font-medium">À propos</Link>
+            <Link href="/features" data-i18n-key="fonctionnalites" className="block text-white font-medium">Fonctionnalités</Link>
+            <a href="/doctagri.apk" download="doctagri.apk" data-i18n-key="telecharger" className="block text-white font-medium">Télécharger</a>
+            <Link href="/faq" data-i18n-key="faq" className="block text-white font-medium">FAQ</Link>
+            <button id="translate-btn-mobile" className="block text-white font-medium flex items-center gap-2 w-full text-left">
+              <i className="ri-global-line"></i> EN
+            </button>
+            <Link href="/contact" data-i18n-key="contact" className="block bg-primary-500 text-white px-4 py-2 rounded-lg text-center">Contact</Link>
           </div>
         </div>
       </nav>
-
-      <div id="google_translate_element" style={{ position: 'absolute', top: 0, left: 0, opacity: 0, pointerEvents: 'none' }}></div>
 
       {/* Hero */}
       <section className="hero-section relative overflow-hidden" id="hero-section">
         <div className="container mx-auto px-4 py-8 md:py-12 relative z-10">
           <div className="text-center text-white mb-12">
-            <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 text-shadow text-black">
-              Protegez Vos Cultures avec<br />
+            <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 text-shadow text-black" data-i18n-key="heroesTitre">
+              Protégez Vos Cultures avec<br />
               <span className="text-primary-light">l'Intelligence Artificielle</span>
             </h1>
-            <p className="text-lg md:text-xl lg:text-2xl mb-10 max-w-3xl mx-auto text-shadow">
-              DoctAgri diagnostique instantanement les maladies de vos plantes et vous guide avec des conseils personnalises en francais et en ewe, meme sans connexion internet
+            <p className="text-lg md:text-xl lg:text-2xl mb-10 max-w-3xl mx-auto text-shadow" data-i18n-key="heroesDescription">
+              DoctAgri diagnostique instantanément les maladies de vos plantes et vous guide avec des conseils personnalisés en français et en ewe, même sans connexion internet
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
-              <Link href="/download" className="bg-primary-light text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-primary-500 transition flex items-center justify-center gap-2 shadow-lg">
-                <i className="ri-download-cloud-line text-xl"></i>Telecharger Gratuitement
-              </Link>
+              <a href="/doctagri.apk" download="doctagri.apk" className="bg-primary-light text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-primary-500 transition flex items-center justify-center gap-2 shadow-lg">
+                <i className="ri-download-cloud-line text-xl"></i><span data-i18n-key="telechargerGratuitement">Télécharger Gratuitement</span>
+              </a>
               <Link href="/features" className="bg-white text-primary-dark border-2 border-gray-300 px-8 py-4 rounded-lg text-lg font-semibold hover:bg-gray-50 transition flex items-center justify-center gap-2 shadow-lg">
-                <i className="ri-play-circle-line text-xl"></i>Decouvrir les Fonctionnalites
+                <i className="ri-play-circle-line text-xl"></i><span data-i18n-key="decouvrirFonctionnalites">Découvrir les Fonctionnalités</span>
               </Link>
             </div>
           </div>
@@ -181,18 +182,18 @@ export default function Home() {
             <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
               <div className="feature-card p-8 rounded-xl text-center">
                 <div className="icon-container"><i className="ri-wifi-off-line text-4xl text-white"></i></div>
-                <h3 className="text-xl font-bold text-white mb-2">100% Hors Ligne</h3>
-                <p className="text-white/90">Fonctionne sans connexion internet</p>
+                <h3 className="text-xl font-bold text-white mb-2" data-i18n-key="horsLigneTitre">100% Hors Ligne</h3>
+                <p className="text-white/90" data-i18n-key="horsLigneDesc">Fonctionne sans connexion internet</p>
               </div>
               <div className="feature-card p-8 rounded-xl text-center">
                 <div className="icon-container"><i className="ri-brain-line text-4xl text-white"></i></div>
-                <h3 className="text-xl font-bold text-white mb-2">IA Embarquee</h3>
-                <p className="text-white/90">Diagnostic instantane par photo</p>
+                <h3 className="text-xl font-bold text-white mb-2" data-i18n-key="iaEmbarqueeTitre">IA Embarquee</h3>
+                <p className="text-white/90" data-i18n-key="iaEmbarqueeDesc">Diagnostic instantane par photo</p>
               </div>
               <div className="feature-card p-8 rounded-xl text-center">
                 <div className="icon-container"><i className="ri-volume-up-line text-4xl text-white"></i></div>
-                <h3 className="text-xl font-bold text-white mb-2">Audio Multilingue</h3>
-                <p className="text-white/90">Conseils en francais, ewe et kabye</p>
+                <h3 className="text-xl font-bold text-white mb-2" data-i18n-key="audioMultilingueTitre">Audio Multilingue</h3>
+                <p className="text-white/90" data-i18n-key="audioMultilingueDesc">Conseils en francais, ewe et kabye</p>
               </div>
             </div>
           </div>

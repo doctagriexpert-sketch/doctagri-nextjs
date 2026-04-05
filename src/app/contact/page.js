@@ -198,7 +198,6 @@ export default function Contact() {
           </div>
         </div>
       </nav>
-      <div id="google_translate_element" style={{ position: 'absolute', top: 0, left: 0, opacity: 0, pointerEvents: 'none' }}></div>
 
       {/* ── Hero ── */}
       <section className="relative pt-32 pb-20 bg-gradient-to-br from-primary-light/10 via-white to-beige-light/20">
